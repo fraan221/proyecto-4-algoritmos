@@ -3,3 +3,8 @@ C:\Users\fraan\Documents\SharpDevelop Projects\proyecto-4-algoritmos\tp-final\pr
 C:\Users\fraan\Documents\SharpDevelop Projects\proyecto-4-algoritmos\tp-final\proyecto-4\obj\Debug\proyecto-4.csprojResolveAssemblyReference.cache
 C:\Users\fraan\Documents\SharpDevelop Projects\proyecto-4-algoritmos\tp-final\proyecto-4\obj\Debug\proyecto-4.exe
 C:\Users\fraan\Documents\SharpDevelop Projects\proyecto-4-algoritmos\tp-final\proyecto-4\obj\Debug\proyecto-4.pdb
+C:\Users\Kllister\Desktop\proyecto-4-algoritmos\tp-final\proyecto-4\obj\Debug\proyecto-4.csprojResolveAssemblyReference.cache
+C:\Users\Kllister\Desktop\proyecto-4-algoritmos\tp-final\proyecto-4\obj\Debug\proyecto-4.exe
+C:\Users\Kllister\Desktop\proyecto-4-algoritmos\tp-final\proyecto-4\bin\Debug\proyecto-4.exe
+C:\Users\Kllister\Desktop\proyecto-4-algoritmos\tp-final\proyecto-4\bin\Debug\proyecto-4.pdb
+C:\Users\Kllister\Desktop\proyecto-4-algoritmos\tp-final\proyecto-4\obj\Debug\proyecto-4.pdb
