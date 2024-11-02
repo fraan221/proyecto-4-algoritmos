@@ -36,14 +36,23 @@ namespace proyecto_4
 		}
 
 //		Metodos
-		public void agregarEntrenador()
+		public void agregarEntrenador(Entrenador entrenador, string nombreDeporte)
 		{
+			foreach (Deporte d in listadoDeportes){
+				if(d.Nombre == nombreDeporte)
+				{
+					d.agregarentrenador(entrenador);
+				}
+			}
+			
+			
+			
 			// Código para agregar un entrenador
 		}
 
-		public void eliminarEntrenador()
+		public void eliminarEntrenador(Deporte deporte, Entrenador entrenador)
 		{
-			// Código para eliminar un entrenador
+			deporte.ListadoEntrenadores.Remove(entrenador);
 		}
 
 		public void agregarSocio()

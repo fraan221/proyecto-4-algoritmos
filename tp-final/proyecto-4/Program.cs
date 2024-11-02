@@ -6,6 +6,8 @@ namespace proyecto_4
 	{
 		public static void Main(string[] args)
 		{
+			Club club = new Club("BOCA");
+			
 			bool salir = false;
 			while(!salir)
 			{
@@ -31,6 +33,15 @@ namespace proyecto_4
 				switch(opcion)
 				{
 					case 1:
+						Console.WriteLine("ingrese el nombre del entrenador:");
+						string nombre = Console.ReadLine();
+						Console.WriteLine("ingrese el dni del entrenador:");
+						int dni = int.Parse(Console.ReadLine());
+						
+						Entrenador entrenador = new Entrenador(nombre, dni);
+						club.agregarEntrenador(entrenador, "futbol");
+						Console.Write("Ah sido agregado con exito");
+						
 						break;
 					case 2:
 						break;

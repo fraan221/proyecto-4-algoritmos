@@ -14,6 +14,8 @@ namespace proyecto_4
 		public Deporte(string nombre)
 		{
 			this.nombre = nombre;
+			listaCategorias = new ArrayList();
+			listadoEntrenadores = new ArrayList();
 		}
 		
 //			Propiedades
@@ -47,6 +49,11 @@ namespace proyecto_4
 		public void listadoTotal()
 		{
 //				TO-DO
+		}
+		
+		
+		public void agregarentrenador(Entrenador entrenador){
+			ListadoEntrenadores.Add(entrenador);
 		}
 	}
 }
