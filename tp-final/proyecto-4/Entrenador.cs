@@ -2,38 +2,38 @@
 
 namespace proyecto_4
 {
-    public class Entrenador
-    {
-        //		Atributos
-        private string nombre;
-        private int dni;
+	public class Entrenador
+	{
+		//Atributos
+		private string nombre;
+		private int dni;
 
-        //		Constructor
-        public Entrenador(string nombre, int dni)
-        {
-            this.nombre = nombre;
-            this.dni = dni;
-        }
+		//Constructor
+		public Entrenador(string nombre, int dni)
+		{
+			this.nombre = nombre;
+			this.dni = dni;
+		}
 
-        //		Propiedades
-        public string Nombre
-        {
-            get { return nombre; }
-            set { nombre = value; }
-        }
+		//Propiedades
+		public string Nombre
+		{
+			get { return nombre; }
+			set { nombre = value; }
+		}
 
-        public int Dni
-        {
-            get { return dni; }
-            set { dni = value; }
-        }
+		public int Dni
+		{
+			get { return dni;}
+			set { dni = value;}
+		}
 
-        //		Metodos
+		//Metodos
 
-        //		MÃ©todo para imprimir los datos del entrenador
-        public void Imprimir()
-        {
-            Console.WriteLine("El entrenador se llama: " + nombre + " y su DNI es: " + dni);
-        }
-    }
+		//MÃ©todo para imprimir los datos del entrenador
+		public void Imprimir()
+		{
+			Console.WriteLine("El entrenador se llama: " + nombre + " y su DNI es: " + dni);
+		}
+	}
 }

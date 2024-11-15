@@ -3,120 +3,113 @@ using System.Collections;
 
 namespace proyecto_4
 {
-    public class Club
-    {
-        // 		Atributos
-        private string nombre;
-        private ArrayList listadoSocios;
-        private ArrayList listadoDeportes;
-        private ArrayList listadoEntrenadores;
+	public class Club
+	{
+// 		Atributos
+		private string nombre;
+		private ArrayList listadoSocios;
+		private ArrayList listadoDeportes;
+		private ArrayList listadoEntrenadores;
 
-        // 		Constructor
-        public Club(string nombre)
-        {
-            this.nombre = nombre;
-            listadoSocios = new ArrayList();
-            listadoDeportes = new ArrayList();
-            listadoEntrenadores = new ArrayList();
-        }
+// 		Constructor
+		public Club(string nombre)
+		{
+			this.nombre = nombre;
+			listadoSocios = new ArrayList();
+			listadoDeportes = new ArrayList();
+			listadoEntrenadores = new ArrayList();
+		}
 
-        // 		Propiedades
-        public string Nombre
-        {
-            get { return nombre; }
-            set { nombre = value; }
-        }
+// 		Propiedades
+		public string Nombre
+		{
+			get { return nombre; }
+			set { nombre = value; }
+		}
 
-        public ArrayList ListadoSocios
-        {
-            get { return listadoSocios; }
-        }
+		public ArrayList ListadoSocios
+		{
+			get { return listadoSocios; }
+		}
 
-        public ArrayList ListadoDeportes
-        {
-            get { return listadoDeportes; }
-        }
-        public ArrayList ListadoEntrenadores
-        {
-            get { return listadoEntrenadores; }
-        }
+		public ArrayList ListadoDeportes
+		{
+			get { return listadoDeportes; }
+		}
+		public ArrayList ListadoEntrenadores
+		{
+			get { return listadoEntrenadores; }
+		}
 
-        //		Metodo agregar entrenador
-        public void AgregarEntrenador(Entrenador e)
-        {
-            // Agregar entrenador a lista de entrenadores del club
-            listadoEntrenadores.Add(e);
-        }
+		
+		
+		
+		//			Metodos
 
-        public void EliminarEntrenador(string nombreDeporte, int dni)
-        {
-            //eliminar entrenador de lista de entrenadores
-            foreach (Entrenador e in listadoEntrenadores)
-            {
-                if (e.Dni == dni)
-                {
-                    listadoEntrenadores.Remove(e);
-                }
-            }
-        }
+		public void EliminarEntrenador(string nombreDeporte, int dni)
+		{
+			//eliminar entrenador de lista de entrenadores
+			foreach( Entrenador e in listadoEntrenadores){
+				if(e.Dni == dni){
+					listadoEntrenadores.Remove(e);
+				}
+			}
+		}
+		
+		public void AgregarEntrenador(Entrenador entrenador){
+			listadoEntrenadores.Add(entrenador);
+		}
+		
+		public void agregarDeporte(Deporte deporte)
+		{
+			listadoDeportes.Add(deporte);
+		}
 
-        public void agregarSocio()
-        {
-            // Código para agregar un socio
-        }
-
-        public void eliminarSocio()
-        {
-            // Código para eliminar un socio
-        }
-
-        public void agregarDeporte(Deporte deporte, int dni)
-        {
-            foreach (Entrenador e in listadoEntrenadores)
-            {
-                if (e.Dni == dni)
-                {
-                    listadoDeportes.Add(deporte);
-                }
-                else
-                {
-                    Console.WriteLine("No existe ese entrenador en el club");
-                }
-            }
-
-        }
-
-        public void eliminarDeporte()
-        {
-            // Código para eliminar un deporte
-        }
-
-        public void mostrarSocio()
-        {
-            // Código para mostrar un socio
-        }
-
-        public void mostrarEntrenador()
-        {
-            // Código para mostrar un entrenador
-        }
-        //			Metodos
-        public void listadoSociosDeporte()
-        {
-            foreach (Deporte d in listadoDeportes)
-            {
-                Console.WriteLine("Nombre del deporte:" + d.Nombre);
-            }
-        }
-
-        public void listadoSociosCategoria()
-        {
-            //				TO-DO
-        }
-
-        public void listadoSociosTotal()
-        {
-            //				TO-DO
-        }
-    }
+		public void listadoSociosDeporte()
+		{
+			foreach(Deporte d in listadoDeportes){
+				Console.WriteLine("Nombre del deporte:" + d.Nombre);
+			}
+		}
+		
+		public Niño niño(int dni){
+			foreach(Niño niño in ListadoSocios){
+				if(niño.Dni==dni){
+					return niño;
+				}
+			}
+			
+			return null;
+		}
+		
+		
+		public Entrenador Buscarentrenador(int dni){ 
+			foreach(Entrenador entrenador in ListadoEntrenadores){
+				if(entrenador.Dni==dni){
+					return entrenador; //devuelve el objeto entrenador
+				}
+			}
+			return null; //devuelve null si no se encuentra
+		}
+		
+		public Deporte BuscarDeporte(string nombre, int categoria){ 
+			foreach(Deporte deporte in ListadoDeportes){
+				if(deporte.Nombre.ToUpper()==nombre.ToUpper() && deporte.Categoria==categoria){
+					return deporte; //devuelve el objeto deporte
+				}
+			}
+			return null;
+		}
+		
+		public bool EliminarEntrenador(Entrenador entrenador){
+			foreach(Deporte deporte in ListadoDeportes){
+				if(entrenador.Dni==deporte.Entrenador.Dni){ //busca en la lista de deporte si existe el Dni de ese entrenador
+					listadoEntrenadores.Remove(entrenador); 
+					return true;
+				}
+				else{return false;}
+			}
+			return true;
+		}
+	}
 }

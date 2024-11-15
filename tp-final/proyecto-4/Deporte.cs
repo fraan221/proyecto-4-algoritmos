@@ -15,16 +15,15 @@ namespace proyecto_4
         private Entrenador entrenador;
 
         // Constructor principal
-        public Deporte(string nombre, int categoria, int cupo, int cantidadInscriptos, double costoCuota, string dia, string hora, Entrenador entrenador)
+        public Deporte(string nombre, int categoria, int cupo, double costoCuota, string dia, string hora, Entrenador entrenador)
         {
             this.nombre = nombre;
             this.categoria = categoria;
             this.cupo = cupo;
-            this.cantidadInscriptos = cantidadInscriptos;
             this.costoCuota = costoCuota;
             this.dia = dia;
             this.hora = hora;
-            this.entrenador = entrenador;
+            this.entrenador=entrenador;
         }
 
         // Propiedades
@@ -75,5 +74,23 @@ namespace proyecto_4
             get { return entrenador; }
             set { entrenador = value; }
         }
+        
+        /*METODOS*/
+        public void bajaInscripto(){
+        	cantidadInscriptos--;
+        }
+        
+        public void altaInscripto(){
+        	cantidadInscriptos++;
+        }
+        
+        public bool cuposDisponibles(){
+        	if(cupo>0){
+        		return true;
+        	}
+        	return false;
+        }
+        
     }
 }
+
