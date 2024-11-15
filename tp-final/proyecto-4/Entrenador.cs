@@ -4,18 +4,18 @@ namespace proyecto_4
 {
     public class Entrenador
     {
-        //	Atributos
+        //		Atributos
         private string nombre;
         private int dni;
 
-        //	Constructor
+        //		Constructor
         public Entrenador(string nombre, int dni)
         {
             this.nombre = nombre;
             this.dni = dni;
         }
 
-        //	Propiedades
+        //		Propiedades
         public string Nombre
         {
             get { return nombre; }
@@ -28,9 +28,9 @@ namespace proyecto_4
             set { dni = value; }
         }
 
-        //	Metodos
+        //		Metodos
 
-        //	Método para imprimir los datos del entrenador
+        //		MÃ©todo para imprimir los datos del entrenador
         public void Imprimir()
         {
             Console.WriteLine("El entrenador se llama: " + nombre + " y su DNI es: " + dni);

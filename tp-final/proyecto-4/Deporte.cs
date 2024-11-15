@@ -1,108 +1,79 @@
 ﻿using System;
-using System.Collections;
 
 namespace proyecto_4
 {
-<<<<<<< HEAD
     public class Deporte
     {
-        //	Atributos
+        // Atributos
         private string nombre;
-        private ArrayList listaCategorias;
-        private ArrayList listadoEntrenadores;
+        private int categoria;
+        private int cupo;
+        private int cantidadInscriptos;
+        private double costoCuota;
+        private string dia;
+        private string hora;
+        private Entrenador entrenador;
 
-        //	Constructor
-        public Deporte(string nombre)
+        // Constructor principal
+        public Deporte(string nombre, int categoria, int cupo, int cantidadInscriptos, double costoCuota, string dia, string hora, Entrenador entrenador)
         {
             this.nombre = nombre;
+            this.categoria = categoria;
+            this.cupo = cupo;
+            this.cantidadInscriptos = cantidadInscriptos;
+            this.costoCuota = costoCuota;
+            this.dia = dia;
+            this.hora = hora;
+            this.entrenador = entrenador;
         }
 
-        //	Propiedades
+        // Propiedades
         public string Nombre
         {
             get { return nombre; }
             set { nombre = value; }
         }
 
-        public ArrayList ListaCategorias
+        public int Categoria
         {
-            get { return listaCategorias; }
+            get { return categoria; }
+            set { categoria = value; }
         }
 
-        public ArrayList ListadoEntrenadores
+        public int Cupo
         {
-            get { return listadoEntrenadores; }
+            get { return cupo; }
+            set { cupo = value; }
         }
 
-        //	Metodos
-        public void listadoDeporte()
+        public int CantidadInscriptos
         {
-            
+            get { return cantidadInscriptos; }
+            set { cantidadInscriptos = value; }
         }
 
-        public void listadoDeporteCategoria()
+        public double CostoCuota
         {
-            //  TO-DO
+            get { return costoCuota; }
+            set { costoCuota = value; }
         }
 
-        public void listadoTotal()
+        public string Dia
         {
-            //	TO-DO
+            get { return dia; }
+            set { dia = value; }
+        }
+
+        public string Hora
+        {
+            get { return hora; }
+            set { hora = value; }
+        }
+
+        public Entrenador Entrenador
+        {
+            get { return entrenador; }
+            set { entrenador = value; }
         }
     }
-=======
-	public class Deporte
-	{
-//			Atributos
-		private string nombre;
-		private ArrayList listaCategorias;
-		private ArrayList listadoEntrenadores;
-		
-//			Constructor
-		public Deporte(string nombre)
-		{
-			this.nombre = nombre;
-			listaCategorias = new ArrayList();
-			listadoEntrenadores = new ArrayList();
-		}
-		
-//			Propiedades
-		public string Nombre
-		{
-			get { return nombre; }
-			set { nombre = value; }
-		}
-		
-		public ArrayList ListaCategorias
-		{
-			get { return listaCategorias; }
-		}
-		
-		public ArrayList ListadoEntrenadores
-		{
-			get { return listadoEntrenadores; }
-		}
-		
-//			Metodos
-		public void listadoDeporte()
-		{
-//				TO-DO
-		}
-		
-		public void listadoDeporteCategoria()
-		{
-//				TO-DO
-		}
-		
-		public void listadoTotal()
-		{
-//				TO-DO
-		}
-		
-		
-		public void agregarentrenador(Entrenador entrenador){
-			ListadoEntrenadores.Add(entrenador);
-		}
-	}
->>>>>>> b68464e775e4598839c78e3f588e1bf90c83ef58
 }

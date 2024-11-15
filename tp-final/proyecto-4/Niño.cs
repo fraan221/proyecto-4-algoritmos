@@ -4,7 +4,7 @@ namespace proyecto_4
 {
     public class Niño
     {
-        //	Atributos
+        //		Atributos
         protected string nombre;
         protected int dni;
         protected int edad;
@@ -12,7 +12,7 @@ namespace proyecto_4
         protected int categoria;
         protected string ultimoMesPago;
 
-        //	Constructor
+        //		Constructor
         public Niño(string nombre, int dni, int edad, string deporte, int categoria, string ultimoMesPago)
         {
             this.nombre = nombre;
@@ -23,7 +23,7 @@ namespace proyecto_4
             this.ultimoMesPago = ultimoMesPago;
         }
 
-        //	Propiedades
+        //		Propiedades
         public string Nombre
         {
             get { return nombre; }
@@ -60,7 +60,7 @@ namespace proyecto_4
             set { ultimoMesPago = value; }
         }
 
-        //	Metodos
+        //		Metodos
         public void Imprimir()
         {
             Console.WriteLine("Nombre: " + nombre);
