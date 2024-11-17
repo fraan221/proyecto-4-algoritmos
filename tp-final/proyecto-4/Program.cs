@@ -4,7 +4,7 @@ namespace proyecto_4
 {
 	class Program
 	{
-//		MAIN
+//		Main
 		public static void Main(string[] args)
 		{
 			Console.WriteLine("Bienvenido!");
@@ -27,7 +27,7 @@ namespace proyecto_4
 			}
 		}
 		
-//		SUBMENU
+//		Submenu
 		public static void Submenu(){
 			Console.WriteLine("-----");
 			Console.WriteLine("SUBMENÚ DE INSCRIPCIÓN");
@@ -67,7 +67,7 @@ namespace proyecto_4
 			}
 		}
 		
-//		MENU PRINCIPAL
+//		Menu Principal
 		public static void Menu(string decision){
 			Club club = new Club("Boca");
 			while (decision == "s" || decision == "S")
@@ -144,15 +144,15 @@ namespace proyecto_4
 			}
 		}
 		
-//		AGREGAR ENTRENADOR
+//		Agregar Entrenador (del main)
 		public static void agregarEntrenador(Club club){
-			Console.WriteLine("ingrese el nombre del entrenador:");
+			Console.WriteLine("Ingrese el nombre del entrenador:");
 			string nombre = Console.ReadLine();
-			Console.WriteLine("ingrese el dni del entrenador:");
+			Console.WriteLine("Ingrese el dni del entrenador:");
 			int dni = int.Parse(Console.ReadLine());
 			
 			if(club.Buscarentrenador(dni)==null){
-				Entrenador nuevoEntrenador=new Entrenador(nombre, dni);
+				Entrenador nuevoEntrenador = new Entrenador(nombre, dni);
 				club.AgregarEntrenador(nuevoEntrenador);
 				Console.WriteLine("Se agrego correctamente el Entrenador \n");
 			}
@@ -160,12 +160,12 @@ namespace proyecto_4
 		}
 
 
-//		ELIMINAR DEPORTE
+//		Eliminar Entrenador (del main)
 		public static void eliminarEntrenador(Club club){
 			int dni;
 			Console.Write("Ingrese el DNI del entrenador para eliminarlo: ");
 			dni=int.Parse(Console.ReadLine());
-			Entrenador ent=club.Buscarentrenador(dni); //se busca entrenador
+			Entrenador ent = club.Buscarentrenador(dni); //se busca entrenador
 			if(ent !=null){
 				if(club.EliminarEntrenador(ent)){
 					Console.WriteLine("Se elimino el entrenador");
@@ -179,93 +179,106 @@ namespace proyecto_4
 		
 		
 		
-//		AGREGAR DEPORTE
+//		Agregar Deporte
 		public static void agregarDeporte(Club club){
 			Console.WriteLine("Ingresa el nombre del deporte: ");
-			string nombre=Console.ReadLine();
+			string nombre = Console.ReadLine();
 
 			int opcion;
 			int categoria;
-			Deporte deporte; //inicializa la clase, por defecto es null
+			Deporte deporte; //	inicializa la clase, por defecto es null
 			
 			do{
 				Console.WriteLine("Ingresa una de las siguientes categorias: ");
-				Console.WriteLine("1_SUB 18");
-				Console.WriteLine("2_SUB 16");
-				Console.WriteLine("3_SUB 12");
-				Console.WriteLine("0_SALIR");
+				Console.WriteLine("1. SUB 18");
+				Console.WriteLine("2. SUB 16");
+				Console.WriteLine("3. SUB 12");
+				Console.WriteLine("4. Salir");
 				opcion=int.Parse(Console.ReadLine());
 				
-				if(opcion==1){
-					categoria=18; //lo guardo así despues se agrega a la clase deporte
-					deporte=club.BuscarDeporte(nombre, categoria); //guarda en la variable el resultado de la busqueda del deporte
+				if(opcion == 1)
+				{
+					categoria = 18; //lo guardo así despues se agrega a la clase deporte
+					deporte = club.BuscarDeporte(nombre, categoria); //guarda en la variable el resultado de la busqueda del deporte
 					
-					if(deporte==null){//si deporte es null, significa que no hay deporte con el nombre y categoria ingresado por el usuario
+					if(deporte == null)
+					{//si deporte es null, significa que no hay deporte con el nombre y categoria ingresado por el usuario
 						datosDeportes(club, nombre, categoria);
 						break;
 					}
-					else{Console.WriteLine("El deporte con esa categoria ya existe");}
+					else
+					{
+						Console.WriteLine("El deporte con esa categoria ya existe");
+					}
 					break;
-					
-					
 				}
-				if(opcion==2){
-					categoria=16;
+				if(opcion == 2)
+				{
+					categoria = 16;
+					deporte = club.BuscarDeporte(nombre, categoria);
+					
+					if(deporte == null)
+					{
+						datosDeportes(club, nombre, categoria);
+						break;
+					}
+					else
+					{
+						Console.WriteLine("El deporte con esa categoria ya existe");
+					}
+					break;
+				}
+				if(opcion == 3)
+				{
+					categoria = 12;
 					deporte=club.BuscarDeporte(nombre, categoria);
 					
-					if(deporte==null){
+					if(deporte == null)
+					{
 						datosDeportes(club, nombre, categoria);
 						break;
 					}
-					else{Console.WriteLine("El deporte con esa categoria ya existe");}
-					break;
-				}
-				
-				if(opcion==3){
-					categoria=12;
-					deporte=club.BuscarDeporte(nombre, categoria);
-					
-					if(deporte==null){
-						datosDeportes(club, nombre, categoria);
-						break;
+					else
+					{
+						Console.WriteLine("El deporte con esa categoria ya existe");
 					}
-					else{Console.WriteLine("El deporte con esa categoria ya existe");}
 					break;
 				}
-			}while(opcion!=0);
-			
+			}
+			while(opcion != 0);
 		}
 
-//		SE COMPLEMENTA CON DEPORTE, AGREGA LOS DATOS QUE LE FALTA
+//		Se complementa con Deporte, agrega los datos que le falta
 		
 		public static void datosDeportes(Club club, string nombre, int categoria){
 			Console.WriteLine("Ingresa los dias: ");
-			string dia=Console.ReadLine();
+			string dia = Console.ReadLine();
 			
 			Console.Write("Ingresa la hora: ");
-			string hora=Console.ReadLine();
+			string hora = Console.ReadLine();
 			
 			Console.Write("Ingresa un cupo maximo: ");
-			int cupo=int.Parse(Console.ReadLine());
+			int cupo = int.Parse(Console.ReadLine());
 			
 			Console.Write("Ingresa el costo de la cuota: ");
-			double costoCuota=double.Parse(Console.ReadLine());
+			double costoCuota = double.Parse(Console.ReadLine());
 			
 			Console.Write("Ingresa el DNI del entrenador a asignar: ");
-			int dniEntrenador=int.Parse(Console.ReadLine());
+			int dniEntrenador = int.Parse(Console.ReadLine());
 			
-			Entrenador entrenador=club.Buscarentrenador(dniEntrenador); //guarda en la instancia Entrenador el resultado de la busqueda
+			Entrenador entrenador = club.Buscarentrenador(dniEntrenador); //guarda en la instancia Entrenador el resultado de la busqueda
 			
-			if(entrenador==null){ //Si no se encuentra un entrenador con el DNI proporcionado, muestra un mensaje de error.
+//			Si no se encuentra un entrenador con el DNI proporcionado, muestra un mensaje de error.
+			if(entrenador == null)
+			{
 				Console.WriteLine("No se encontro ningun entrenador con ese DNI ingresado");
 			}
-			
-			else{
-				Deporte dep1=new Deporte(nombre, categoria, cupo, costoCuota, dia, hora, entrenador);
+			else
+			{
+				Deporte dep1 = new Deporte(nombre, categoria, cupo, costoCuota, dia, hora, entrenador);
 				club.agregarDeporte(dep1);
 				Console.WriteLine("Se agrego correctamente");
 			}
-			
 		}
 	}
 }

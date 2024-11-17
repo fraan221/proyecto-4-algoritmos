@@ -5,13 +5,13 @@ namespace proyecto_4
 {
 	public class Club
 	{
-// 		Atributos
+		// 		Atributos
 		private string nombre;
 		private ArrayList listadoSocios;
 		private ArrayList listadoDeportes;
 		private ArrayList listadoEntrenadores;
 
-// 		Constructor
+		// 		Constructor
 		public Club(string nombre)
 		{
 			this.nombre = nombre;
@@ -20,7 +20,7 @@ namespace proyecto_4
 			listadoEntrenadores = new ArrayList();
 		}
 
-// 		Propiedades
+		// 		Propiedades
 		public string Nombre
 		{
 			get { return nombre; }
@@ -40,15 +40,12 @@ namespace proyecto_4
 		{
 			get { return listadoEntrenadores; }
 		}
-
 		
-		
-		
-		//			Metodos
+//		Metodos
 
 		public void EliminarEntrenador(string nombreDeporte, int dni)
 		{
-			//eliminar entrenador de lista de entrenadores
+			//	eliminar entrenador de lista de entrenadores
 			foreach( Entrenador e in listadoEntrenadores){
 				if(e.Dni == dni){
 					listadoEntrenadores.Remove(e);
@@ -82,8 +79,7 @@ namespace proyecto_4
 			return null;
 		}
 		
-		
-		public Entrenador Buscarentrenador(int dni){ 
+		public Entrenador Buscarentrenador(int dni){
 			foreach(Entrenador entrenador in ListadoEntrenadores){
 				if(entrenador.Dni==dni){
 					return entrenador; //devuelve el objeto entrenador
@@ -92,7 +88,7 @@ namespace proyecto_4
 			return null; //devuelve null si no se encuentra
 		}
 		
-		public Deporte BuscarDeporte(string nombre, int categoria){ 
+		public Deporte BuscarDeporte(string nombre, int categoria){
 			foreach(Deporte deporte in ListadoDeportes){
 				if(deporte.Nombre.ToUpper()==nombre.ToUpper() && deporte.Categoria==categoria){
 					return deporte; //devuelve el objeto deporte
@@ -104,7 +100,7 @@ namespace proyecto_4
 		public bool EliminarEntrenador(Entrenador entrenador){
 			foreach(Deporte deporte in ListadoDeportes){
 				if(entrenador.Dni==deporte.Entrenador.Dni){ //busca en la lista de deporte si existe el Dni de ese entrenador
-					listadoEntrenadores.Remove(entrenador); 
+					listadoEntrenadores.Remove(entrenador);
 					return true;
 				}
 				else{return false;}

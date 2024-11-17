@@ -4,22 +4,22 @@ namespace proyecto_4
 {
 	public class Socio: Niño
 	{
-		//Atributos
+//		Atributos
 		private int descuento;
 
-		//Constructor
+//		Constructor
 		public Socio(string nombre, int dni, int edad, string deporte, int categoria, string ultimoMesPago, int descuento): base(nombre, dni, edad, deporte, categoria, ultimoMesPago)
 		{
 			this.descuento=descuento;
 		}
 
-		//Propiedades
+//		Propiedades
 		public int Descuento{
 			get{ return descuento; }
 			set{ descuento=value; }
 		}
 
-		//Metodos
+//		Metodos
 		public void MostrarDescuento(){
 			Console.WriteLine("Descuento: " + descuento);
 		}
