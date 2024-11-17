@@ -43,7 +43,7 @@ namespace proyecto_4
 		
 //		Metodos
 
-		//agregar 
+		//agregar
 		
 		public void AgregarEntrenador(Entrenador entrenador){
 			listadoEntrenadores.Add(entrenador);
@@ -74,7 +74,7 @@ namespace proyecto_4
 			listadoDeportes.Remove(deporte);
 		}
 		
-			//revisar este metodo
+		//revisar este metodo
 		public bool EliminarEntrenador(Entrenador entrenador){
 			foreach(Deporte deporte in ListadoDeportes){
 				if(entrenador.Dni==deporte.Entrenador.Dni){ //busca en la lista de deporte si existe el Dni de ese entrenador
@@ -98,26 +98,52 @@ namespace proyecto_4
 		
 		public Deporte BuscarDeporte(string nombre, int categoria){
 			foreach(Deporte deporte in ListadoDeportes){
-				if(deporte.Nombre.ToUpper()==nombre.ToUpper() && deporte.Categoria==categoria){
+				if(deporte.Nombre.ToUpper() == nombre.ToUpper() && deporte.Categoria==categoria){
 					return deporte; //devuelve el objeto deporte
 				}
 			}
 			return null;
 		}
 		
-		
-		
-	//otros
-		public void listadoSociosDeporte()
+//		Listado por Deporte
+		public void listadoDeporte()
 		{
-			foreach(Deporte d in listadoDeportes){
-				Console.WriteLine("Nombre del deporte:" + d.Nombre);
+			Console.WriteLine("Deportes del Club\n");
+			foreach(Deporte d in ListadoDeportes)
+			{
+				Console.WriteLine("{0}", d.Nombre);
+			}
+			Console.WriteLine("\n");
+		}
+		
+//		Listado por Deporte y Categoria
+		public void listadoDeporteCategoria()
+		{
+			Console.WriteLine("Deportes y Categorias del Club\n");
+			foreach(Deporte d in ListadoDeportes)
+			{
+				Console.WriteLine("Deporte: {0}", d.Nombre);
+				Console.WriteLine("Categoria: Sub{0}\n", d.Categoria);
 			}
 		}
 		
-			//seria el listado total
-		public void listaSocios(){
-			foreach(Socio socio in listadoSocios){
+//		Listado Total
+		public void listadoTotal()
+		{
+			Console.WriteLine("Listado Total\n");
+			foreach(Deporte d in ListadoDeportes)
+			{
+				Console.WriteLine("{0}", d.Nombre);
+			}
+			int cantidadDeportes = ListadoDeportes.Count;
+			Console.WriteLine("\nCantidad Total de Deportes en el Club: {0}\n", cantidadDeportes);
+		}
+		
+		
+		public void listaSocio()
+		{
+			foreach(Socio socio in ListadoSocios)
+			{
 				socio.Imprimir();
 			}
 		}
