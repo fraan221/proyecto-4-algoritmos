@@ -70,6 +70,9 @@ namespace proyecto_4
 //		Menu Principal
 		public static void Menu(string decision){
 			Club club = new Club("Boca");
+			Socio socioPrueba=new Socio("braian", 45619054, 20, "Futbol", 18, "Mes", 2000);
+			club.agregarSocio(socioPrueba);
+			
 			while (decision == "s" || decision == "S")
 			{
 				Console.WriteLine("-----");
@@ -115,12 +118,12 @@ namespace proyecto_4
 							Submenu();
 							break;
 						case 7:
+							club.listaSocios();
 							break;
 						case 8:
-							agregarDeporte(club);
 							break;
 						case 9:
-//							club.listadoSociosDeporte();
+							eliminarDeporte(club);
 							break;
 						case 10:
 							Console.Write("Seguro que desea terminar? s/n: ");
@@ -280,5 +283,70 @@ namespace proyecto_4
 				Console.WriteLine("Se agrego correctamente");
 			}
 		}
+		
+		
+//Eliminar deporte
+
+		public static void eliminarDeporte(Club club){
+			Console.Write("Ingresa el nombre del deporte a Eliminar: ");
+			string nombreDeporte=Console.ReadLine();
+				
+			int categoria;			
+			int opcion;
+
+			Deporte deporte;
+			do{
+				Console.WriteLine("Ingresa una de las siguientes categorias: ");
+				Console.WriteLine("1. SUB 18");
+				Console.WriteLine("2. SUB 16");
+				Console.WriteLine("3. SUB 12");
+				Console.WriteLine("4. Salir");
+				opcion=int.Parse(Console.ReadLine());
+				if(opcion==1){
+					categoria=18;
+					deporte=club.BuscarDeporte(nombreDeporte, categoria);
+					if(deporte == null){
+						Console.WriteLine("No existe ese deporte con esa categoria");
+						break;
+					}
+					else{
+						club.EliminarDeporte(deporte);
+						Console.Write("Se a eliminado con exito el deporte");
+						break;
+					}					
+				}
+				
+				if(opcion==2){
+					categoria=16;
+					deporte=club.BuscarDeporte(nombreDeporte, categoria);
+					if(deporte == null){
+						Console.WriteLine("No existe ese deporte con esa categoria");
+						break;
+					}
+					else{
+						club.EliminarDeporte(deporte);
+						Console.Write("Se a eliminado con exito el deporte");
+						break;
+					}					
+				}
+				
+				if(opcion==3){
+					categoria=12;
+					deporte=club.BuscarDeporte(nombreDeporte, categoria);
+					if(deporte == null){
+						Console.WriteLine("No existe ese deporte con esa categoria");
+						break;
+					}
+					else{
+						club.EliminarDeporte(deporte);
+						Console.Write("Se a eliminado con exito el deporte");
+						break;
+					}					
+				}
+				else{Console.WriteLine("Opcion ingresada no valida");}
+				
+			}while(opcion!=4);
+		}
+		
 	}
 }

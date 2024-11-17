@@ -8,3 +8,8 @@ C:\Users\Kllister\Desktop\proyecto-4-algoritmos\tp-final\proyecto-4\obj\Debug\pr
 C:\Users\Kllister\Desktop\proyecto-4-algoritmos\tp-final\proyecto-4\bin\Debug\proyecto-4.exe
 C:\Users\Kllister\Desktop\proyecto-4-algoritmos\tp-final\proyecto-4\bin\Debug\proyecto-4.pdb
 C:\Users\Kllister\Desktop\proyecto-4-algoritmos\tp-final\proyecto-4\obj\Debug\proyecto-4.pdb
+C:\Users\HERIC\Desktop\proyecto-4-algoritmos\tp-final\proyecto-4\bin\Debug\proyecto-4.exe
+C:\Users\HERIC\Desktop\proyecto-4-algoritmos\tp-final\proyecto-4\bin\Debug\proyecto-4.pdb
+C:\Users\HERIC\Desktop\proyecto-4-algoritmos\tp-final\proyecto-4\obj\Debug\proyecto-4.csprojResolveAssemblyReference.cache
+C:\Users\HERIC\Desktop\proyecto-4-algoritmos\tp-final\proyecto-4\obj\Debug\proyecto-4.exe
+C:\Users\HERIC\Desktop\proyecto-4-algoritmos\tp-final\proyecto-4\obj\Debug\proyecto-4.pdb

@@ -43,15 +43,7 @@ namespace proyecto_4
 		
 //		Metodos
 
-		public void EliminarEntrenador(string nombreDeporte, int dni)
-		{
-			//	eliminar entrenador de lista de entrenadores
-			foreach( Entrenador e in listadoEntrenadores){
-				if(e.Dni == dni){
-					listadoEntrenadores.Remove(e);
-				}
-			}
-		}
+		//agregar 
 		
 		public void AgregarEntrenador(Entrenador entrenador){
 			listadoEntrenadores.Add(entrenador);
@@ -61,24 +53,40 @@ namespace proyecto_4
 		{
 			listadoDeportes.Add(deporte);
 		}
-
-		public void listadoSociosDeporte()
-		{
-			foreach(Deporte d in listadoDeportes){
-				Console.WriteLine("Nombre del deporte:" + d.Nombre);
-			}
+		
+		public void agregarSocio(Socio socio){
+			listadoSocios.Add(socio);
 		}
 		
-		public Niño niño(int dni){
-			foreach(Niño niño in ListadoSocios){
-				if(niño.Dni==dni){
-					return niño;
+		
+		
+		//eliminar
+		public void EliminarEntrenador(string nombreDeporte, int dni)
+		{
+			foreach( Entrenador e in listadoEntrenadores){
+				if(e.Dni == dni){
+					listadoEntrenadores.Remove(e);
 				}
 			}
-			
-			return null;
 		}
 		
+		public void EliminarDeporte(Deporte deporte){
+			listadoDeportes.Remove(deporte);
+		}
+		
+			//revisar este metodo
+		public bool EliminarEntrenador(Entrenador entrenador){
+			foreach(Deporte deporte in ListadoDeportes){
+				if(entrenador.Dni==deporte.Entrenador.Dni){ //busca en la lista de deporte si existe el Dni de ese entrenador
+					listadoEntrenadores.Remove(entrenador);
+					return true;
+				}
+				else{return false;}
+			}
+			return true;
+		}
+		
+		//buscardores
 		public Entrenador Buscarentrenador(int dni){
 			foreach(Entrenador entrenador in ListadoEntrenadores){
 				if(entrenador.Dni==dni){
@@ -97,15 +105,32 @@ namespace proyecto_4
 			return null;
 		}
 		
-		public bool EliminarEntrenador(Entrenador entrenador){
-			foreach(Deporte deporte in ListadoDeportes){
-				if(entrenador.Dni==deporte.Entrenador.Dni){ //busca en la lista de deporte si existe el Dni de ese entrenador
-					listadoEntrenadores.Remove(entrenador);
-					return true;
-				}
-				else{return false;}
+		
+		
+	//otros
+		public void listadoSociosDeporte()
+		{
+			foreach(Deporte d in listadoDeportes){
+				Console.WriteLine("Nombre del deporte:" + d.Nombre);
 			}
-			return true;
 		}
+		
+			//seria el listado total
+		public void listaSocios(){
+			foreach(Socio socio in listadoSocios){
+				socio.Imprimir();
+			}
+		}
+		
+		public Niño niño(int dni){
+			foreach(Niño niño in ListadoSocios){
+				if(niño.Dni==dni){
+					return niño;
+				}
+			}
+			
+			return null;
+		}
+		
 	}
 }
