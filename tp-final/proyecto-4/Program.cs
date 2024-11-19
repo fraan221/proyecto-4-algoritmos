@@ -75,12 +75,19 @@ namespace proyecto_4
 		public static void Menu(string decision)
 		{
 			Club club = new Club("Boca");
-			Socio socioPrueba=new Socio("braian", 45619054, 20, "Futbol", 18, "Mes", 2000);
+			Socio socioPrueba=new Socio("Braia", 45619054, 20, "Futbol", 18, "Mes", 2000);
+			Socio socioPrueba2=new Socio("Matias", 123213, 12, "Baloncesto", 16, "Mes", 25000);
+			Socio socioPrueba3=new Socio("Daniel", 555555, 16, "Voley", 16, "Mes", 10000);
 			club.agregarSocio(socioPrueba);
+			club.agregarSocio(socioPrueba2);
+			club.agregarSocio(socioPrueba3);
+			
+			
 			Entrenador e = new Entrenador("Franco", 44966422);
 			Entrenador e1 = new Entrenador("Catriel", 44657432);
-			Deporte d = new Deporte("Futbol", 18, 21, 5000, "5", "19:00", e);
-			Deporte d1 = new Deporte("Baloncesto", 21, 15, 10000, "6", "21:00", e1);
+			Deporte d = new Deporte("futbol", 18, 20, 1, 5000, "lunes", "19:00", e);
+			Deporte d1 = new Deporte("Baloncesto", 21, 15, 0,10000, "6", "21:00", e1);
+			
 			club.ListadoEntrenadores.Add(e);
 			club.ListadoEntrenadores.Add(e1);
 			club.ListadoDeportes.Add(d);
@@ -294,7 +301,7 @@ namespace proyecto_4
 			}
 			else
 			{
-				Deporte dep1 = new Deporte(nombre, categoria, cupo, costoCuota, dia, hora, entrenador);
+				Deporte dep1 = new Deporte(nombre, categoria, cupo, 0,costoCuota, dia, hora, entrenador);
 				club.agregarDeporte(dep1);
 				Console.WriteLine("Se agrego correctamente");
 			}
@@ -318,6 +325,7 @@ namespace proyecto_4
 				Console.WriteLine("3. SUB 12");
 				Console.WriteLine("4. Salir");
 				opcion=int.Parse(Console.ReadLine());
+				
 				if(opcion==1){
 					categoria=18;
 					deporte=club.BuscarDeporte(nombreDeporte, categoria);
@@ -327,7 +335,6 @@ namespace proyecto_4
 					}
 					else{
 						club.EliminarDeporte(deporte);
-						Console.Write("Se a eliminado con exito el deporte");
 						break;
 					}
 				}
@@ -341,7 +348,6 @@ namespace proyecto_4
 					}
 					else{
 						club.EliminarDeporte(deporte);
-						Console.Write("Se a eliminado con exito el deporte");
 						break;
 					}
 				}
@@ -355,12 +361,10 @@ namespace proyecto_4
 					}
 					else{
 						club.EliminarDeporte(deporte);
-						Console.Write("Se a eliminado con exito el deporte");
 						break;
 					}
 				}
 				else{Console.WriteLine("Opcion ingresada no valida");}
-				
 			}while(opcion!=4);
 		}
 		

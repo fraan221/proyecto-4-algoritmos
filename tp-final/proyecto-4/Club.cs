@@ -71,7 +71,16 @@ namespace proyecto_4
 		}
 		
 		public void EliminarDeporte(Deporte deporte){
-			listadoDeportes.Remove(deporte);
+			foreach(Deporte dep in listadoDeportes){
+				if(dep.CantidadInscriptos==0){
+					listadoDeportes.Remove(deporte);
+					Console.WriteLine("SE A ELIMINADO EL DEPORTE");
+					break;
+				}
+				else{Console.WriteLine("NO SE PUDO ELIMINAR EL DEPORTE, TIENE INSCRIPTOS");
+				break;
+				}
+			}
 		}
 		
 		//revisar este metodo
@@ -104,6 +113,8 @@ namespace proyecto_4
 			}
 			return null;
 		}
+		
+		
 		
 //		Listado por Deporte
 		public void listadoDeporte()
@@ -142,6 +153,7 @@ namespace proyecto_4
 		
 		public void listaSocio()
 		{
+			Console.WriteLine("LISTADO DE SOCIOS\n");
 			foreach(Socio socio in ListadoSocios)
 			{
 				socio.Imprimir();
