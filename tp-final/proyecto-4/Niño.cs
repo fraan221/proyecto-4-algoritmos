@@ -24,37 +24,38 @@ namespace proyecto_4
 
 //		Propiedades
 		public string Nombre{
-			get{return nombre;}
-			set{nombre=value;}
+			get{ return nombre; }
+			set{ nombre = value; }
 		}
 
 		public int Dni{
-			get{return dni;}
-			set{dni=value;}
+			get{ return dni; }
+			set{ dni = value; }
 		}
 
 		public int Edad{
-			get{return edad;}
-			set{edad=value;}
+			get{ return edad; }
+			set{ edad = value; }
 		}
 
 		public string Deporte{
-			get{return deporte;}
-			set{deporte=value;}
+			get{ return deporte; }
+			set{ deporte = value; }
 		}
 
 		public int Categoria{
-			get{return categoria;}
-			set{categoria=value;}
+			get{ return categoria; }
+			set{ categoria = value; }
 		}
 
 		public string UltimoMesPago{
-			get{return ultimoMesPago;}
-			set{ultimoMesPago=value;}
+			get{ return ultimoMesPago; }
+			set{ ultimoMesPago = value; }
 		}
 
 //		Metodos
-		public void Imprimir(){
+		public void imprimir()
+		{
 			Console.WriteLine("Nombre: " + nombre);
 			Console.WriteLine("Dni: " + dni);
 			Console.WriteLine("Edad: " + edad);

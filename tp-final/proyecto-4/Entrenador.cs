@@ -24,14 +24,14 @@ namespace proyecto_4
 
 		public int Dni
 		{
-			get { return dni;}
-			set { dni = value;}
+			get { return dni; }
+			set { dni = value; }
 		}
 
 //		Metodos
 
 //		Metodo para imprimir los datos del entrenador
-		public void Imprimir()
+		public void imprimir()
 		{
 			Console.WriteLine("El entrenador se llama: " + nombre + " y su DNI es: " + dni);
 		}

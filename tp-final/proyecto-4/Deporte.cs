@@ -92,6 +92,10 @@ namespace proyecto_4
 			return false;
 		}
 		
+		public void imprimir()
+		{
+//			TO-DO
+		}
 	}
 }
 

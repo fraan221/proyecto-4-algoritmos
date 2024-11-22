@@ -43,78 +43,74 @@ namespace proyecto_4
 		
 //		Metodos
 
-		//agregar
-		
-		public void AgregarEntrenador(Entrenador entrenador){
+//		Agregar Entrenador
+		public void agregarEntrenador(Entrenador entrenador)
+		{
 			listadoEntrenadores.Add(entrenador);
 		}
 		
+//		Agregar Deporte
 		public void agregarDeporte(Deporte deporte)
 		{
 			listadoDeportes.Add(deporte);
 		}
 		
-		public void agregarSocio(Socio socio){
+//		Agregar Socio
+		public void agregarSocio(Socio socio)
+		{
 			listadoSocios.Add(socio);
 		}
 		
-		
-		
-		//eliminar
-		public void EliminarEntrenador(string nombreDeporte, int dni)
+//		Eliminar Entrenador
+		public void eliminarEntrenador(int dni)
 		{
-			foreach( Entrenador e in listadoEntrenadores){
-				if(e.Dni == dni){
+			foreach(Entrenador e in listadoEntrenadores)
+			{
+				if(e.Dni == dni)
 					listadoEntrenadores.Remove(e);
-				}
 			}
 		}
 		
-		public void EliminarDeporte(Deporte deporte){
-			foreach(Deporte dep in listadoDeportes){
-				if(dep.CantidadInscriptos==0){
+//		Eliminar Deporte
+		public void eliminarDeporte(Deporte deporte)
+		{
+			foreach(Deporte dep in listadoDeportes)
+			{
+				if(dep.CantidadInscriptos == 0)
+				{
 					listadoDeportes.Remove(deporte);
-					Console.WriteLine("SE A ELIMINADO EL DEPORTE");
+					Console.WriteLine("El Deporte seleccionado se ha eliminado correctamente.");
 					break;
 				}
-				else{Console.WriteLine("NO SE PUDO ELIMINAR EL DEPORTE, TIENE INSCRIPTOS");
-				break;
+				else
+				{
+					Console.WriteLine("El Deporte seleccion no puede ser eliminado aun, tiene inscriptos.");
+					break;
 				}
 			}
 		}
 		
-		//revisar este metodo
-		public bool EliminarEntrenador(Entrenador entrenador){
-			foreach(Deporte deporte in ListadoDeportes){
-				if(entrenador.Dni==deporte.Entrenador.Dni){ //busca en la lista de deporte si existe el Dni de ese entrenador
-					listadoEntrenadores.Remove(entrenador);
-					return true;
-				}
-				else{return false;}
-			}
-			return true;
-		}
-		
-		//buscardores
-		public Entrenador Buscarentrenador(int dni){
-			foreach(Entrenador entrenador in ListadoEntrenadores){
-				if(entrenador.Dni==dni){
+//		Buscar Entrenador
+		public Entrenador buscarEntrenador(int dni)
+		{
+			foreach(Entrenador entrenador in ListadoEntrenadores)
+			{
+				if(entrenador.Dni == dni)
 					return entrenador; //devuelve el objeto entrenador
-				}
 			}
 			return null; //devuelve null si no se encuentra
 		}
 		
-		public Deporte BuscarDeporte(string nombre, int categoria){
-			foreach(Deporte deporte in ListadoDeportes){
-				if(deporte.Nombre.ToUpper() == nombre.ToUpper() && deporte.Categoria==categoria){
+//		Buscar Deporte
+		public Deporte buscarDeporte(string nombre, int categoria)
+		{
+			foreach(Deporte deporte in ListadoDeportes)
+			{
+				if(deporte.Nombre.ToUpper() == nombre.ToUpper() && deporte.Categoria==categoria)
 					return deporte; //devuelve el objeto deporte
-				}
 			}
-			return null;
+			return null; //devuelve null si no se encuentra
 		}
-		
-		
 		
 //		Listado por Deporte
 		public void listadoDeporte()
@@ -150,25 +146,22 @@ namespace proyecto_4
 			Console.WriteLine("\nCantidad Total de Deportes en el Club: {0}\n", cantidadDeportes);
 		}
 		
-		
 		public void listaSocio()
 		{
 			Console.WriteLine("LISTADO DE SOCIOS\n");
 			foreach(Socio socio in ListadoSocios)
 			{
-				socio.Imprimir();
+				socio.imprimir();
 			}
 		}
 		
 		public Niño niño(int dni){
-			foreach(Niño niño in ListadoSocios){
-				if(niño.Dni==dni){
+			foreach(Niño niño in ListadoSocios)
+			{
+				if(niño.Dni==dni)
 					return niño;
-				}
 			}
-			
 			return null;
 		}
-		
 	}
 }

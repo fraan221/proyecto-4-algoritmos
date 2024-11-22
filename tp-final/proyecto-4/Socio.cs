@@ -20,8 +20,10 @@ namespace proyecto_4
 		}
 
 //		Metodos
-		public void MostrarDescuento(){
-			Console.WriteLine("Descuento: " + descuento);
+		
+		public void imprimir()
+		{
+//			TO-DO
 		}
 	}
 }
