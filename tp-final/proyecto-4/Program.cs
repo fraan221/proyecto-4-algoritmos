@@ -134,6 +134,7 @@ namespace proyecto_4
 						case 4:
 							break;
 						case 5:
+							simulacionDePagoMain(club);
 							break;
 						case 6:
 							Submenu(club);
@@ -405,6 +406,34 @@ namespace proyecto_4
 				club.agregarSocio(s);
 				
 			}
+		}
+		// 		METODO SIMULACION DE PAGO
+		
+		public static void simulacionDePagoMain(Club club){
+			
+			Console.WriteLine("Ingrese el dni del socio para actualizar la cuota:");
+			int dni = int.Parse(Console.ReadLine());
+			
+			foreach(Socio s in club.ListadoSocios)
+			{
+				if(s.Dni == dni)
+				{
+					Console.WriteLine("El valor de la cuota es de 20.000 pesos");
+					Console.WriteLine("Ingrese el valor de la cuota");
+					double cuota = int.Parse(Console.ReadLine());
+					
+					double descuento = (20 * cuota)/100; //20% de descuento por ser socio
+					Console.WriteLine("Al ser socio tuvo un descuento del:" + descuento);
+					
+					s.UltimoMesPago = "Noviembre"; //ultimo mes pago actualizado
+				}
+//				else if (s.Dni != dni)
+//				{
+//					Console.WriteLine("No existe ese socio en el club");
+//					break;
+//				}
+			}
+	
 		}
 	}
 }
