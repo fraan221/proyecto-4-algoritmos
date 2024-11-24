@@ -127,6 +127,7 @@ namespace proyecto_4
 							eliminarEntrenadorMain(club);
 							break;
 						case 3:
+							agregarSocioMain(club);
 							break;
 						case 4:
 							break;
@@ -370,6 +371,38 @@ namespace proyecto_4
 					Console.WriteLine("Opcion ingresada no valida");
 			}
 			while(opcion!=4);
+		}
+		
+//		METODO DAR DE ALTA NIÑO
+		public static void agregarSocioMain(Club club){
+			
+			Deporte deporte;
+			
+			Console.WriteLine("Ingrese el nombre del socio");
+			string nombre = Console.ReadLine();
+			Console.WriteLine("Ingrese el dni del socio:");
+			int dni = int.Parse(Console.ReadLine());
+			Console.WriteLine("Ingrese la edad del socio:");
+			int edad = int.Parse(Console.ReadLine());
+			Console.WriteLine("Ingrese el deporte al que se quiere inscribir:");
+			string nombre_deporte = Console.ReadLine();
+			Console.WriteLine("Ingrese la categoria del socio:");
+			int categoria = int.Parse(Console.ReadLine());
+			Console.WriteLine("Ingrese el ultimo mes pago:");
+			string ultimoMesPago = Console.ReadLine();
+			Console.WriteLine("Ingrese el descuento que tiene por ser socio:");
+			int descuento = int.Parse(Console.ReadLine());
+			
+			deporte = club.buscarDeporte(nombre_deporte, categoria);
+			if(deporte == null){
+				Console.WriteLine("No se puede inscribir ya que no existe ese deporte");
+			}
+			else
+			{
+				Socio s = new Socio(nombre, dni, edad, nombre_deporte, categoria, ultimoMesPago, descuento);
+				club.agregarSocio(s);
+				
+			}
 		}
 	}
 }

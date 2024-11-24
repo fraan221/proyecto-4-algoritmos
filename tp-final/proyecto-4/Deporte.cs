@@ -94,7 +94,7 @@ namespace proyecto_4
 		
 		public void imprimir()
 		{
-//			TO-DO
+			Console.WriteLine("{0}, {1}, {2}", nombre, categoria, cantidadInscriptos);
 		}
 	}
 }

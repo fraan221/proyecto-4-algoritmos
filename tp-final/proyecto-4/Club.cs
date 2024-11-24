@@ -42,6 +42,15 @@ namespace proyecto_4
 		}
 		
 //		Metodos
+//		eliminar socio
+		
+		public void eliminarSocio(int dni){
+			foreach(Socio s in listadoSocios){
+				if(s.Dni == dni){
+					listadoSocios.Remove(s);
+				}
+			}
+		}
 
 //		Agregar Entrenador
 		public void agregarEntrenador(Entrenador entrenador)
@@ -163,5 +172,6 @@ namespace proyecto_4
 			}
 			return null;
 		}
+		
 	}
 }
