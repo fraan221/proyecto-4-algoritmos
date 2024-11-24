@@ -122,14 +122,21 @@ namespace proyecto_4
 		}
 		
 //		Listado por Deporte
-		public void listadoDeporte()
+		public void listadoDeporte(string deporte)
 		{
-			Console.WriteLine("Deportes del Club\n");
 			foreach(Deporte d in ListadoDeportes)
 			{
-				Console.WriteLine("{0}", d.Nombre);
+				if(d.Nombre.ToLower() == deporte.ToLower())
+				{
+					foreach(Socio s in ListadoSocios)
+					{
+						if(s.Deporte.ToLower() == deporte.ToLower())
+							Console.WriteLine("{0}", s.Nombre);
+					}
+				}
+				else if(d.Nombre != deporte)
+					Console.WriteLine("El deporte ingresado no existe en el club.");
 			}
-			Console.WriteLine("\n");
 		}
 		
 //		Listado por Deporte y Categoria

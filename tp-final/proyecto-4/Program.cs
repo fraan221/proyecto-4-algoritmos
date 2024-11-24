@@ -45,7 +45,9 @@ namespace proyecto_4
 			
 			switch(opcion){
 				case 1:
-					club.listadoDeporte();
+					Console.Write("Ingrese el Deporte deseado: ");
+					string d = Console.ReadLine();
+					club.listadoDeporte(d);
 					break;
 				case 2:
 					club.listadoDeporteCategoria();
@@ -57,8 +59,8 @@ namespace proyecto_4
 					Console.Write("Seguro que quiere volver al Menu Principal? s/n: ");
 					string decisionSub = Console.ReadLine();
 					if(decisionSub == "s" || decisionSub == "S"){
-						string d = "n";
-						Menu(d);
+						decisionSub = "n";
+						Menu(decisionSub);
 					}
 					else{
 						Console.WriteLine("Opcion incorrecta");
@@ -86,7 +88,7 @@ namespace proyecto_4
 			
 			Entrenador e = new Entrenador("Franco", 44966422);
 			Entrenador e1 = new Entrenador("Catriel", 44657432);
-			Deporte d = new Deporte("futbol", 18, 20, 1, 5000, "lunes", "19:00", e);
+			Deporte d = new Deporte("Futbol", 18, 20, 1, 5000, "lunes", "19:00", e);
 			Deporte d1 = new Deporte("Baloncesto", 21, 15, 0,10000, "6", "21:00", e1);
 			
 			club.ListadoEntrenadores.Add(e);
