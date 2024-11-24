@@ -5,16 +5,16 @@ namespace proyecto_4
 	public class Socio: Niño
 	{
 //		Atributos
-		private int descuento;
+		private double descuento;
 
 //		Constructor
-		public Socio(string nombre, int dni, int edad, string deporte, int categoria, int ultimoMesPago, int descuento): base(nombre, dni, edad, deporte, categoria, ultimoMesPago)
+		public Socio(string nombre, int dni, int edad, string deporte, int categoria, int ultimoMesPago, double descuento): base(nombre, dni, edad, deporte, categoria, ultimoMesPago)
 		{
 			this.descuento=descuento;
 		}
 
 //		Propiedades
-		public int Descuento{
+		public double Descuento{
 			get{ return descuento; }
 			set{ descuento=value; }
 		}

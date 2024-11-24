@@ -42,16 +42,6 @@ namespace proyecto_4
 		}
 		
 //		Metodos
-		
-//		Eliminar Socio
-		
-		public void eliminarSocio(int dni){
-			foreach(Socio s in listadoSocios){
-				if(s.Dni == dni){
-					listadoSocios.Remove(s);
-				}
-			}
-		}
 
 //		Agregar Entrenador
 		public void agregarEntrenador(Entrenador entrenador)
@@ -72,14 +62,28 @@ namespace proyecto_4
 		}
 		
 //		Eliminar Entrenador
-		public void eliminarEntrenador(int dni)
+		public void eliminarEntrenador(Entrenador entrenador, int dni)
 		{
 			foreach(Entrenador e in listadoEntrenadores)
 			{
-				if(e.Dni == dni)
-					listadoEntrenadores.Remove(e);
+				if(e.Dni == dni){
+					listadoEntrenadores.Remove(entrenador);
+					break;
+				}
 			}
 		}
+		
+		//		Eliminar Socio
+		public void eliminarSocio(Socio socio, int dni){
+			foreach (Socio s in listadoSocios){
+				if(s.Dni==dni){
+					listadoSocios.Remove(socio);
+					break;
+				}
+			}
+		}
+		
+		
 		
 //		Eliminar Deporte
 		public void eliminarDeporte(Deporte deporte)

@@ -33,9 +33,10 @@ namespace proyecto_4
 		{
 //			INICIALIZACIONES DE CLASES DE PRUEBA
 			Club club = new Club("Boca");
-			Socio socioPrueba=new Socio("Braian", 45619054, 20, "Futbol", 18, 11, 20); //nombre, dni, edad, deporte, categoria, mes de pago, porcentaje
-			Socio socioPrueba2=new Socio("Matias", 123213, 12, "Baloncesto", 16, 1, 20);
-			Socio socioPrueba3=new Socio("Daniel", 555555, 16, "Voley", 16, 2, 20);
+			/*
+			Socio socioPrueba=new Socio("Braian", 45619054, 20, "Futbol", 18, 11, 0.20); //nombre, dni, edad, deporte, categoria, mes de pago, porcentaje
+			Socio socioPrueba2=new Socio("Matias", 123213, 12, "Baloncesto", 16, 1, 0.20);
+			Socio socioPrueba3=new Socio("Daniel", 555555, 16, "Voley", 16, 2, 0.20);
 			club.agregarSocio(socioPrueba);
 			club.agregarSocio(socioPrueba2);
 			club.agregarSocio(socioPrueba3);
@@ -43,13 +44,13 @@ namespace proyecto_4
 			
 			Entrenador ePrueba = new Entrenador("Franco", 44966422);
 			Entrenador ePrueba1 = new Entrenador("Catriel", 44657432);
-			Deporte depoPrueba = new Deporte("Futbol", 18, 20, 5000, "lunes", "19:00", ePrueba);
+			Deporte depoPrueba = new Deporte("Futbol", 18, 20, 20000, "lunes", "19:00", ePrueba);
 			Deporte depoPrueba1 = new Deporte("Baloncesto", 21, 0, 10000, "6", "21:00", ePrueba1);
 			
 			club.agregarEntrenador(ePrueba);
 			club.agregarEntrenador(ePrueba1);
 			club.agregarDeporte(depoPrueba);
-			club.agregarDeporte(depoPrueba1);
+			club.agregarDeporte(depoPrueba1);*/
 //			FIN DE LAS INICIALIZACIONES
 			
 			while (decision == "s" || decision == "S")
@@ -87,6 +88,7 @@ namespace proyecto_4
 							agregarSocioMain(club);
 							break;
 						case 4:
+							eliminarSocio(club);
 							break;
 						case 5:
 							simulacionDePagoMain(club);
@@ -199,6 +201,10 @@ namespace proyecto_4
 			}
 			else
 				Console.WriteLine("El Entrenador ingresado ya esta registrado");
+			
+			Console.ReadKey(true);
+			Console.Clear();
+			
 		}
 
 //		Eliminar Entrenador (del main)
@@ -208,10 +214,15 @@ namespace proyecto_4
 			int dni = int.Parse(Console.ReadLine());
 			Entrenador ent = club.buscarEntrenador(dni); //se busca entrenador
 			
-			if(ent != null)
+			if(ent != null){
+				club.eliminarEntrenador(ent, dni);
 				Console.WriteLine("Se elimino el entrenador");
-			else
+			}
+			else{
 				Console.WriteLine("No se encontro el entrenador");
+			}
+			Console.ReadKey(true);
+			Console.Clear();
 		}
 		
 //		Agregar Deporte (del main)
@@ -230,6 +241,7 @@ namespace proyecto_4
 				Console.WriteLine("2. SUB 16");
 				Console.WriteLine("3. SUB 12");
 				Console.WriteLine("4. Salir");
+				Console.Write("Ingrese una opcion: ");
 				opcion=int.Parse(Console.ReadLine());
 				
 				if(opcion == 1)
@@ -316,6 +328,8 @@ namespace proyecto_4
 				club.agregarDeporte(dep1);
 				Console.WriteLine("Se agrego correctamente");
 			}
+			Console.ReadKey(true);
+			Console.Clear();
 		}
 		
 		
@@ -336,6 +350,7 @@ namespace proyecto_4
 				Console.WriteLine("2. SUB 16");
 				Console.WriteLine("3. SUB 12");
 				Console.WriteLine("4. Salir");
+				Console.Write("Ingrese una opcion: ");
 				opcion=int.Parse(Console.ReadLine());
 				
 				if(opcion == 1)
@@ -385,84 +400,134 @@ namespace proyecto_4
 				}
 				else
 					Console.WriteLine("Opcion ingresada no valida");
+				
+			Console.ReadKey(true);
+			Console.Clear();
 			}
 			while(opcion!=4);
 		}
 		
 //		METODO DAR DE ALTA NIÑO
 		public static void agregarSocioMain(Club club){
-			
-			Deporte deporte;
-			
-			Console.WriteLine("Ingrese el nombre del socio");
-			string nombre = Console.ReadLine();
-			Console.WriteLine("Ingrese el dni del socio:");
-			int dni = int.Parse(Console.ReadLine());
-			Console.WriteLine("Ingrese la edad del socio:");
-			int edad = int.Parse(Console.ReadLine());
-			Console.WriteLine("Ingrese el deporte al que se quiere inscribir:");
+			Console.Write("Ingrese el deporte al que se quiere inscribir: ");
 			string nombre_deporte = Console.ReadLine();
-			Console.WriteLine("HAY SOLO TRES CATEGORIAS: SUB 12, SUB 16, SUB 18");
-			Console.WriteLine("Ingrese la categoria del socio:");
+			Console.WriteLine("\nHAY SOLO TRES CATEGORIAS: SUB 12, SUB 16, SUB 18");
+			Console.Write("Ingrese la categoria del socio: ");
 			int categoria = int.Parse(Console.ReadLine());
-			Console.WriteLine("Ingrese el numero de mes del ultimo mes pago:");
-			int ultimoMesPago = int.Parse(Console.ReadLine());
-			Console.WriteLine("El descuento que recibira es del 20%");
-			int descuento = 20; //dejamos fijo el porcentaje que sera del 20%
 			
-			
-			
-			deporte = club.buscarDeporte(nombre_deporte, categoria);
+			Deporte deporte = club.buscarDeporte(nombre_deporte, categoria);
 			if(deporte == null){
 				Console.WriteLine("No se puede inscribir ya que no existe ese deporte");
 			}
-			else
-			{
+			
+			else if(deporte !=null){
+				Console.Write("Ingrese el nombre del socio: ");
+				string nombre = Console.ReadLine();
+				Console.Write("Ingrese el dni del socio: ");
+				int dni = int.Parse(Console.ReadLine());
+				Console.Write("Ingrese la edad del socio: ");
+				int edad = int.Parse(Console.ReadLine());
+
+				Console.Write("Ingrese el numero de mes del ultimo mes pago: ");
+				int ultimoMesPago = int.Parse(Console.ReadLine());
+				Console.Write("El descuento que recibira es del 20%");
+				double descuento = 0.20; //dejamos fijo el porcentaje que sera del 20%
 				Socio s = new Socio(nombre, dni, edad, nombre_deporte, categoria, ultimoMesPago, descuento);
+				Console.WriteLine("\nSE A AGREGADO EL SOCIO");
 				club.agregarSocio(s);
 				deporte.altaInscripto();
 			}
+			
+			Console.ReadKey(true);
+			Console.Clear();
 		}
+		// 		METODO DE ELIMINAR SOCIO
 		
-		// 		METODO SIMULACION DE PAGO
-		public static void simulacionDePagoMain(Club club){
+		public static void eliminarSocio(Club club){
+			Console.Write("Ingresa el deporte del Socio: ");
+			string nombreDeporte=Console.ReadLine();
+			Console.Write("Ingresa la cateogoria: ");
+			int categoriaDeporte=int.Parse(Console.ReadLine());
 			
-			Console.Write("Ingrese el dni del socio para actualizar la cuota: ");
-			int dni = int.Parse(Console.ReadLine());
+			Console.Write("Ingresa el DNI del socio a eliminar: ");
+			int dni=int.Parse(Console.ReadLine());
+			
 			Socio so=club.buscarSocio(dni);
+			Deporte depo=club.buscarDeporte(nombreDeporte, categoriaDeporte);
 			
-			foreach(Socio s in club.ListadoSocios)
-			{
+			if(depo==null){
+				Console.WriteLine("El deporte no existe con esa categoria");
+			}
+			else{	
 				if(so==null){
-					Console.WriteLine("No esta registrado como socio");
-					break;
+					Console.WriteLine("No se a encontrado el socio");
 					
 				}
 				else{
-					Console.WriteLine("Existe el socio");
-					Console.WriteLine("El valor de la cuota es de 20000 pesos");
-					double cuota = 20000;
-					double descuentoSocio=s.Descuento;
-					
-					double descuento = (descuentoSocio * cuota)/100; //20% de descuento por ser socio
-					
-					Console.WriteLine("Al ser socio tuvo un descuento del:" + descuento);
-					Console.WriteLine("El abono total le quedara de: " + (cuota-descuento));
-					
-					s.UltimoMesPago= 11; //ultimo mes pago actualizado
-					break;
+					club.eliminarSocio(so, dni);
+					Console.WriteLine("Se a eliminado el socio");
+					depo.bajaInscripto(); //baja la en 1 cada vez que se elimina un socio
 				}
-				
 			}
+			Console.ReadKey(true);
+			Console.Clear();
 			
 		}
 		
+		
+		
+		// 		METODO SIMULACION DE PAGO
+		public static void simulacionDePagoMain(Club club){
+			Console.Write("Ingresa el deporte del Socio: ");
+			string nombreDeporte=Console.ReadLine();
+			Console.Write("Ingresa la cateogoria: ");
+			int categoriaDeporte=int.Parse(Console.ReadLine());
+			
+			Console.Write("Ingrese el dni del socio para actualizar la cuota: ");
+			int dni = int.Parse(Console.ReadLine());
+			
+			Socio so=club.buscarSocio(dni);
+			Deporte dep=club.buscarDeporte(nombreDeporte, categoriaDeporte);
+			
+			foreach(Deporte d in club.ListadoDeportes){
+				if(dep==null){
+					Console.WriteLine("No existe el deporte con esa categoria");
+					break;
+				}
+				else{
+					foreach(Socio s in club.ListadoSocios){
+						if(so==null){
+							Console.WriteLine("No existe el socio con el DNI ingresado");
+						}
+						else{
+							Console.WriteLine("\nExiste el socio");
+							double costoCuota=d.CostoCuota; //guardo el precio del abono del deporte
+							double descuentoSocio=s.Descuento; //guardo el porcentaje del descuento (20%)
+							double descuento=costoCuota*descuentoSocio; //nos dice el monto del porcentaje
+							
+							Console.WriteLine("\nEl descuento sera de: " + descuento);
+							Console.WriteLine("El abono total con el descuento es: " + (costoCuota - descuento));
+							s.UltimoMesPago=11; //ultimo mes pago actualizado
+							break;
+						}
+					}
+					break;
+				}
+			}
+			Console.ReadKey(true);
+			Console.Clear();
+			
+		}
+		
+//		LISTA DE DEUDORES
 		public static void listaDeudores(Club club){
 			foreach(Socio socio in club.ListadoSocios){
 				if(socio.UltimoMesPago<11){
 					socio.imprimir();
 				}
 			}
+			Console.ReadKey(true);
+			Console.Clear();
 		}
 	}
 }
