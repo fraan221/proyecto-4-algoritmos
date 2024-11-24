@@ -131,22 +131,37 @@ namespace proyecto_4
 					foreach(Socio s in ListadoSocios)
 					{
 						if(s.Deporte.ToLower() == deporte.ToLower())
-							Console.WriteLine("{0}", s.Nombre);
+							Console.WriteLine("{0}, {1}\n", s.Nombre);
 					}
 				}
-				else if(d.Nombre != deporte)
-					Console.WriteLine("El deporte ingresado no existe en el club.");
+				else if(d.Nombre.ToLower() != deporte.ToLower())
+				{
+					Console.WriteLine("No existe el deporte ingresado.\n");
+					break;
+				}
 			}
 		}
 		
 //		Listado por Deporte y Categoria
-		public void listadoDeporteCategoria()
+		public void listadoDeporteCategoria(string deporte, int categoria)
 		{
-			Console.WriteLine("Deportes y Categorias del Club\n");
 			foreach(Deporte d in ListadoDeportes)
 			{
-				Console.WriteLine("Deporte: {0}", d.Nombre);
-				Console.WriteLine("Categoria: Sub{0}\n", d.Categoria);
+				if(d.Nombre.ToLower() == deporte.ToLower() && d.Categoria == categoria)
+				{
+					foreach(Socio s in ListadoSocios)
+					{
+						if(s.Nombre.ToLower() == deporte.ToLower() && s.Categoria == categoria)
+						{
+							Console.WriteLine("{0}, {1}, {2}\n", s.Nombre, s.Deporte, s.Categoria);
+						}
+					}
+				}
+				else if(d.Nombre.ToLower() != deporte.ToLower() && d.Categoria != categoria)
+				{
+					Console.WriteLine("No existe el deporte ingresado.\n");
+					break;
+				}
 			}
 		}
 		
@@ -157,6 +172,7 @@ namespace proyecto_4
 			foreach(Deporte d in ListadoDeportes)
 			{
 				Console.WriteLine("{0}", d.Nombre);
+				Console.WriteLine(" Sub {0}", d.Categoria);
 			}
 			int cantidadDeportes = ListadoDeportes.Count;
 			Console.WriteLine("\nCantidad Total de Deportes en el Club: {0}\n", cantidadDeportes);
