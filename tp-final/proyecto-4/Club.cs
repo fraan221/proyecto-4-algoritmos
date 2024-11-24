@@ -42,7 +42,8 @@ namespace proyecto_4
 		}
 		
 //		Metodos
-//		eliminar socio
+		
+//		Eliminar Socio
 		
 		public void eliminarSocio(int dni){
 			foreach(Socio s in listadoSocios){
@@ -137,20 +138,20 @@ namespace proyecto_4
 //		Listado por Deporte
 		public void listadoDeporte(string deporte)
 		{
-			foreach(Deporte d in ListadoDeportes)
+			foreach(Deporte d in ListadoDeportes) // recorre la lista de deportes
 			{
-				if(d.Nombre.ToLower() == deporte.ToLower())
+				if(deporte.ToLower() == d.Nombre.ToLower())	// compara el nombre recibido con el nombre del deporte
 				{
-					foreach(Socio s in ListadoSocios)
+					foreach(Socio s in ListadoSocios)	// si coindice recorre la lista de socios
 					{
-						if(s.Deporte.ToLower() == deporte.ToLower())
-							Console.WriteLine("{0}, {1}\n", s.Nombre);
+						if(s.Deporte.ToLower() == deporte.ToLower())	// checkea los socios con ese deporte asociado
+							Console.WriteLine("{0}, {1}\n", s.Nombre, s.Deporte);	// imprime los socios
 					}
-				}
-				else if(d.Nombre.ToLower() != deporte.ToLower())
-				{
-					Console.WriteLine("No existe el deporte ingresado.\n");
 					break;
+				}
+				else if(deporte.ToLower() != d.Nombre.ToLower())	// si el nombre recibido posr parametro no coincide con ninguno en la lista devuelve un mensaje
+				{
+					Console.WriteLine("El deporte ingresado no existe.");
 				}
 			}
 		}
@@ -160,20 +161,29 @@ namespace proyecto_4
 		{
 			foreach(Deporte d in ListadoDeportes)
 			{
-				if(d.Nombre.ToLower() == deporte.ToLower() && d.Categoria == categoria)
+				if(deporte.ToLower() == d.Nombre.ToLower())
 				{
-					foreach(Socio s in ListadoSocios)
+					if(categoria == d.Categoria)
 					{
-						if(s.Nombre.ToLower() == deporte.ToLower() && s.Categoria == categoria)
+						foreach(Socio s in ListadoSocios)
 						{
-							Console.WriteLine("{0}, {1}, {2}\n", s.Nombre, s.Deporte, s.Categoria);
+							if(deporte.ToLower() == s.Deporte.ToLower())
+							{
+								if(categoria == s.Categoria)
+								{
+									Console.WriteLine("{0}, {1}, {2}\n", s.Nombre, s.Deporte, s.Categoria);
+								}
+							}
 						}
+						break;
 					}
 				}
-				else if(d.Nombre.ToLower() != deporte.ToLower() && d.Categoria != categoria)
+				else if(deporte.ToLower() != d.Nombre.ToLower())
 				{
-					Console.WriteLine("No existe el deporte ingresado.\n");
-					break;
+					if(categoria != d.Categoria)
+					{
+						Console.WriteLine("No existe el deporte ingresado.\n");
+					}
 				}
 			}
 		}
@@ -208,6 +218,5 @@ namespace proyecto_4
 			}
 			return null;
 		}
-		
 	}
 }

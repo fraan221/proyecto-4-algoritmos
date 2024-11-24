@@ -28,62 +28,12 @@ namespace proyecto_4
 			}
 		}
 		
-//		Submenu
-		public static void Submenu(Club club){
-			Console.WriteLine("-----");
-			Console.WriteLine("SUBMENÚ DE INSCRIPCIÓN");
-			Console.WriteLine("-----------------------------------------------");
-			Console.WriteLine("1. Listado por Deporte");
-			Console.WriteLine("2. Listado por Deporte y Categoria");
-			Console.WriteLine("3. Listado Total");
-			Console.WriteLine("4. Volver");
-			Console.WriteLine("-----------------------------------------------");
-			
-			Console.Write("Seleccione una opción: ");
-			int opcion = int.Parse(Console.ReadLine());
-			Console.Clear();
-			
-			switch(opcion){
-				case 1:
-					Console.Write("Ingrese el Deporte deseado: ");
-					string d = Console.ReadLine();
-					club.listadoDeporte(d);
-					break;
-				case 2:
-					Console.Write("Ingrese un deporte: ");
-					string deporte=Console.ReadLine();
-					Console.Write("Ingrese una categoria: ");
-					int categoria=int.Parse(Console.ReadLine());
-					
-					club.listadoDeporteCategoria(deporte, categoria);
-					break;
-				case 3:
-					club.listadoTotal();
-					break;
-				case 4:
-					Console.Write("Seguro que quiere volver al Menu Principal? s/n: ");
-					string decisionSub = Console.ReadLine();
-					if(decisionSub == "s" || decisionSub == "S"){
-						decisionSub = "n";
-						Menu(decisionSub);
-					}
-					else{
-						Console.WriteLine("Opcion incorrecta");
-						Submenu(club);
-					}
-					break;
-				default:
-					Console.WriteLine("Opcion no valida. Por favor, ingrese una opcion valida.");
-					break;
-			}
-		}
-		
 //		Menu Principal
 		public static void Menu(string decision)
 		{
 //			INICIALIZACIONES DE CLASES DE PRUEBA
 			Club club = new Club("Boca");
-			Socio socioPrueba=new Socio("Braia", 45619054, 20, "Futbol", 18, 11, 20); //nombre, dni, edad, deporte, categoria, mes de pago, porcentaje
+			Socio socioPrueba=new Socio("Braian", 45619054, 20, "Futbol", 18, 11, 20); //nombre, dni, edad, deporte, categoria, mes de pago, porcentaje
 			Socio socioPrueba2=new Socio("Matias", 123213, 12, "Baloncesto", 16, 1, 20);
 			Socio socioPrueba3=new Socio("Daniel", 555555, 16, "Voley", 16, 2, 20);
 			club.agregarSocio(socioPrueba);
@@ -91,15 +41,15 @@ namespace proyecto_4
 			club.agregarSocio(socioPrueba3);
 			
 			
-			Entrenador e = new Entrenador("Franco", 44966422);
-			Entrenador e1 = new Entrenador("Catriel", 44657432);
-			Deporte d = new Deporte("Futbol", 18, 20, 5000, "lunes", "19:00", e);
-			Deporte d1 = new Deporte("Baloncesto", 21, 0,10000, "6", "21:00", e1);
+			Entrenador ePrueba = new Entrenador("Franco", 44966422);
+			Entrenador ePrueba1 = new Entrenador("Catriel", 44657432);
+			Deporte depoPrueba = new Deporte("Futbol", 18, 20, 5000, "lunes", "19:00", ePrueba);
+			Deporte depoPrueba1 = new Deporte("Baloncesto", 21, 0, 10000, "6", "21:00", ePrueba1);
 			
-			club.ListadoEntrenadores.Add(e);
-			club.ListadoEntrenadores.Add(e1);
-			club.ListadoDeportes.Add(d);
-			club.ListadoDeportes.Add(d1);
+			club.agregarEntrenador(ePrueba);
+			club.agregarEntrenador(ePrueba1);
+			club.agregarDeporte(depoPrueba);
+			club.agregarDeporte(depoPrueba1);
 //			FIN DE LAS INICIALIZACIONES
 			
 			while (decision == "s" || decision == "S")
@@ -173,6 +123,63 @@ namespace proyecto_4
 					Console.Clear();
 					Console.WriteLine("Opcion incorrecta :( \n");
 				}
+			}
+		}
+		
+//		Submenu
+		public static void Submenu(Club club)
+		{
+			Console.WriteLine("-----");
+			Console.WriteLine("SUBMENÚ DE INSCRIPCIÓN");
+			Console.WriteLine("-----------------------------------------------");
+			Console.WriteLine("1. Listado por Deporte");
+			Console.WriteLine("2. Listado por Deporte y Categoria");
+			Console.WriteLine("3. Listado Total");
+			Console.WriteLine("4. Volver");
+			Console.WriteLine("-----------------------------------------------");
+			
+			Console.Write("Seleccione una opción: ");
+			int op = int.Parse(Console.ReadLine());
+			Console.Clear();
+			
+			switch(op)
+			{
+				case 1:
+					Console.Write("Ingrese el deporte: ");
+					string dep = Console.ReadLine();
+					club.listadoDeporte(dep);
+					break;
+				case 2:
+					Console.Write("Ingrese un deporte: ");
+					string deporte = Console.ReadLine();
+					Console.Write("Ingrese una categoria: ");
+					int categoria = int.Parse(Console.ReadLine());
+					club.listadoDeporteCategoria(deporte, categoria);
+					break;
+				case 3:
+					club.listadoTotal();
+					break;
+				case 4:
+					Console.Write("Seguro que quiere volver al Menu Principal? s/n: ");
+					string decisionSub = Console.ReadLine();
+					if(decisionSub == "s" || decisionSub == "S")
+					{
+						string d = "n";
+						Menu(d);
+					}
+					else if(decisionSub == "n" || decisionSub == "N")
+					{
+						Submenu(club);
+					}
+					else
+					{
+						Console.WriteLine("Opcion incorrecta");
+						Submenu(club);
+					}
+					break;
+				default:
+					Console.WriteLine("Opcion no valida. Por favor, ingrese una opcion valida.");
+					break;
 			}
 		}
 		
@@ -416,14 +423,14 @@ namespace proyecto_4
 				deporte.altaInscripto();
 			}
 		}
-		// 		METODO SIMULACION DE PAGO
 		
+		// 		METODO SIMULACION DE PAGO
 		public static void simulacionDePagoMain(Club club){
-	
+			
 			Console.Write("Ingrese el dni del socio para actualizar la cuota: ");
 			int dni = int.Parse(Console.ReadLine());
 			Socio so=club.buscarSocio(dni);
-		
+			
 			foreach(Socio s in club.ListadoSocios)
 			{
 				if(so==null){
@@ -447,7 +454,7 @@ namespace proyecto_4
 				}
 				
 			}
-	
+			
 		}
 		
 		public static void listaDeudores(Club club){

@@ -13,7 +13,8 @@ namespace proyecto_4
 		protected int ultimoMesPago;
 
 //		Constructor
-		public Niño(string nombre, int dni, int edad, string deporte, int categoria, int ultimoMesPago){
+		public Niño(string nombre, int dni, int edad, string deporte, int categoria, int ultimoMesPago)
+		{
 			this.nombre=nombre;
 			this.dni=dni;
 			this.edad=edad;
@@ -23,38 +24,44 @@ namespace proyecto_4
 		}
 
 //		Propiedades
-		public string Nombre{
+		public string Nombre
+		{
 			get{ return nombre; }
 			set{ nombre = value; }
 		}
 
-		public int Dni{
+		public int Dni
+		{
 			get{ return dni; }
 			set{ dni = value; }
 		}
 
-		public int Edad{
+		public int Edad
+		{
 			get{ return edad; }
 			set{ edad = value; }
 		}
 
-		public string Deporte{
+		public string Deporte
+		{
 			get{ return deporte; }
 			set{ deporte = value; }
 		}
 
-		public int Categoria{
+		public int Categoria
+		{
 			get{ return categoria; }
 			set{ categoria = value; }
 		}
 
-		public int UltimoMesPago{
+		public int UltimoMesPago
+		{
 			get{ return ultimoMesPago; }
 			set{ ultimoMesPago = value; }
 		}
 
 //		Metodos
-		public void imprimir()
+		public virtual void imprimir()
 		{
 			Console.WriteLine("Nombre: " + nombre);
 			Console.WriteLine("Dni: " + dni);

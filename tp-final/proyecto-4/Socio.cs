@@ -20,8 +20,7 @@ namespace proyecto_4
 		}
 
 //		Metodos
-		
-		public void imprimir()
+		public override void imprimir()
 		{
 			Console.WriteLine("Nombre: " + nombre);
 			Console.WriteLine("Dni: " + dni);
