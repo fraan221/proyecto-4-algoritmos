@@ -83,16 +83,16 @@ namespace proyecto_4
 //		Eliminar Deporte
 		public void eliminarDeporte(Deporte deporte)
 		{
+			
 			foreach(Deporte dep in listadoDeportes)
 			{
-				if(dep.CantidadInscriptos == 0)
+				if(dep.CantidadInscriptos==0)
 				{
 					listadoDeportes.Remove(deporte);
 					Console.WriteLine("El Deporte seleccionado se ha eliminado correctamente.");
 					break;
 				}
-				else
-				{
+				else if(dep.CantidadInscriptos !=0){
 					Console.WriteLine("El Deporte seleccion no puede ser eliminado aun, tiene inscriptos.");
 					break;
 				}
@@ -120,6 +120,19 @@ namespace proyecto_4
 			}
 			return null; //devuelve null si no se encuentra
 		}
+		
+
+		
+//		Buscar socio
+		public Socio buscarSocio(int dni){
+			foreach(Socio socio in ListadoSocios){
+				if(socio.Dni==dni){
+					return socio;
+				}
+			}
+			return null;
+		}
+		
 		
 //		Listado por Deporte
 		public void listadoDeporte(string deporte)

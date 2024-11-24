@@ -8,7 +8,7 @@ namespace proyecto_4
 		private int descuento;
 
 //		Constructor
-		public Socio(string nombre, int dni, int edad, string deporte, int categoria, string ultimoMesPago, int descuento): base(nombre, dni, edad, deporte, categoria, ultimoMesPago)
+		public Socio(string nombre, int dni, int edad, string deporte, int categoria, int ultimoMesPago, int descuento): base(nombre, dni, edad, deporte, categoria, ultimoMesPago)
 		{
 			this.descuento=descuento;
 		}
@@ -23,7 +23,9 @@ namespace proyecto_4
 		
 		public void imprimir()
 		{
-			Console.WriteLine("{0}, {1}, {2}", nombre, dni, descuento);
+			Console.WriteLine("Nombre: " + nombre);
+			Console.WriteLine("Dni: " + dni);
+			Console.WriteLine("Descuento: " + descuento);
 		}
 	}
 }

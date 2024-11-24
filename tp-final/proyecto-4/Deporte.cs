@@ -15,16 +15,16 @@ namespace proyecto_4
 		private Entrenador entrenador;
 
 //		Constructor
-		public Deporte(string nombre, int categoria, int cupo, int cantidadInscriptos,double costoCuota, string dia, string hora, Entrenador entrenador)
+		public Deporte(string nombre, int categoria, int cupo,double costoCuota, string dia, string hora, Entrenador entrenador)
 		{
 			this.nombre = nombre;
 			this.categoria = categoria;
 			this.cupo = cupo;
+			this.cantidadInscriptos=0;
 			this.costoCuota = costoCuota;
 			this.dia = dia;
 			this.hora = hora;
 			this.entrenador = entrenador;
-			this.cantidadInscriptos=cantidadInscriptos;
 		}
 
 //		Propiedades

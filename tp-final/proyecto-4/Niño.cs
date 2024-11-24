@@ -10,10 +10,10 @@ namespace proyecto_4
 		protected int edad;
 		protected string deporte;
 		protected int categoria;
-		protected string ultimoMesPago;
+		protected int ultimoMesPago;
 
 //		Constructor
-		public Niño(string nombre, int dni, int edad, string deporte, int categoria, string ultimoMesPago){
+		public Niño(string nombre, int dni, int edad, string deporte, int categoria, int ultimoMesPago){
 			this.nombre=nombre;
 			this.dni=dni;
 			this.edad=edad;
@@ -48,7 +48,7 @@ namespace proyecto_4
 			set{ categoria = value; }
 		}
 
-		public string UltimoMesPago{
+		public int UltimoMesPago{
 			get{ return ultimoMesPago; }
 			set{ ultimoMesPago = value; }
 		}
