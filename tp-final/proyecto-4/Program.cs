@@ -33,16 +33,15 @@ namespace proyecto_4
 		{
 			//INICIALIZACIONES DE CLASES DE PRUEBA
 			Club club = new Club("Boca");
-<<<<<<< HEAD
 			
 			Socio socioPrueba=new Socio("Braian", 45619054, 20, "Futbol", 18, 11, 0.20); //nombre, dni, edad, deporte, categoria, mes de pago, porcentaje
 			Socio socioPrueba2=new Socio("Matias", 123213, 12, "Baloncesto", 16, 1, 0.20);
 			Socio socioPrueba3=new Socio("Daniel", 555555, 16, "Voley", 16, 2, 0.20);
-=======
-			/*Socio socioPrueba = new Socio("Braian", 45619054, 20, "Futbol", 18, 11, 0.20); //nombre, dni, edad, deporte, categoria, mes de pago, porcentaje
+
+			Socio socioPrueba = new Socio("Braian", 45619054, 20, "Futbol", 18, 11, 0.20); //nombre, dni, edad, deporte, categoria, mes de pago, porcentaje
 			Socio socioPrueba2 = new Socio("Matias", 123213, 12, "Baloncesto", 16, 1, 0.20);
 			Socio socioPrueba3 = new Socio("Daniel", 555555, 16, "Voley", 16, 2, 0.20);
->>>>>>> d43ae7978eb970eee6dc1631a3a1b7811a11cc5b
+			
 			club.agregarSocio(socioPrueba);
 			club.agregarSocio(socioPrueba2);
 			club.agregarSocio(socioPrueba3);
