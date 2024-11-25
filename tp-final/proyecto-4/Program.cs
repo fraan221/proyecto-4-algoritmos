@@ -33,10 +33,16 @@ namespace proyecto_4
 		{
 			//INICIALIZACIONES DE CLASES DE PRUEBA
 			Club club = new Club("Boca");
+<<<<<<< HEAD
 			
 			Socio socioPrueba=new Socio("Braian", 45619054, 20, "Futbol", 18, 11, 0.20); //nombre, dni, edad, deporte, categoria, mes de pago, porcentaje
 			Socio socioPrueba2=new Socio("Matias", 123213, 12, "Baloncesto", 16, 1, 0.20);
 			Socio socioPrueba3=new Socio("Daniel", 555555, 16, "Voley", 16, 2, 0.20);
+=======
+			/*Socio socioPrueba = new Socio("Braian", 45619054, 20, "Futbol", 18, 11, 0.20); //nombre, dni, edad, deporte, categoria, mes de pago, porcentaje
+			Socio socioPrueba2 = new Socio("Matias", 123213, 12, "Baloncesto", 16, 1, 0.20);
+			Socio socioPrueba3 = new Socio("Daniel", 555555, 16, "Voley", 16, 2, 0.20);
+>>>>>>> d43ae7978eb970eee6dc1631a3a1b7811a11cc5b
 			club.agregarSocio(socioPrueba);
 			club.agregarSocio(socioPrueba2);
 			club.agregarSocio(socioPrueba3);
@@ -142,48 +148,56 @@ namespace proyecto_4
 			Console.WriteLine("4. Volver");
 			Console.WriteLine("-----------------------------------------------");
 			
-			Console.Write("Seleccione una opción: ");
-			int op = int.Parse(Console.ReadLine());
-			Console.Clear();
-			
-			switch(op)
+			try
 			{
-				case 1:
-					Console.Write("Ingrese el deporte: ");
-					string dep = Console.ReadLine();
-					club.listadoDeporte(dep);
-					break;
-				case 2:
-					Console.Write("Ingrese un deporte: ");
-					string deporte = Console.ReadLine();
-					Console.Write("Ingrese una categoria: ");
-					int categoria = int.Parse(Console.ReadLine());
-					club.listadoDeporteCategoria(deporte, categoria);
-					break;
-				case 3:
-					club.listadoTotal();
-					break;
-				case 4:
-					Console.Write("Seguro que quiere volver al Menu Principal? s/n: ");
-					string decisionSub = Console.ReadLine();
-					if(decisionSub == "s" || decisionSub == "S")
-					{
-						string d = "n";
-						Menu(d);
-					}
-					else if(decisionSub == "n" || decisionSub == "N")
-					{
-						Submenu(club);
-					}
-					else
-					{
-						Console.WriteLine("Opcion incorrecta");
-						Submenu(club);
-					}
-					break;
-				default:
-					Console.WriteLine("Opcion no valida. Por favor, ingrese una opcion valida.");
-					break;
+				Console.Write("Seleccione una opción: ");
+				int op = int.Parse(Console.ReadLine());
+				Console.Clear();
+				
+				switch(op)
+				{
+					case 1:
+						Console.Write("Ingrese el deporte: ");
+						string dep = Console.ReadLine();
+						club.listadoDeporte(dep);
+						break;
+					case 2:
+						Console.Write("Ingrese un deporte: ");
+						string deporte = Console.ReadLine();
+						Console.Write("Ingrese una categoria: ");
+						int categoria = int.Parse(Console.ReadLine());
+						club.listadoDeporteCategoria(deporte, categoria);
+						break;
+					case 3:
+						club.listadoTotal();
+						break;
+					case 4:
+						Console.Write("Seguro que quiere volver al Menu Principal? s/n: ");
+						string decisionSub = Console.ReadLine();
+						if(decisionSub == "s" || decisionSub == "S")
+						{
+							string d = "n";
+							Menu(d);
+						}
+						else if(decisionSub == "n" || decisionSub == "N")
+						{
+							Submenu(club);
+						}
+						else
+						{
+							Console.WriteLine("Opcion incorrecta");
+							Submenu(club);
+						}
+						break;
+					default:
+						Console.WriteLine("Opcion no valida. Por favor, ingrese una opcion valida.");
+						break;
+				}
+			}
+			
+			catch(FormatException)
+			{
+				Console.WriteLine("Algo salio mal. Intentelo de nuevo\n");
 			}
 		}
 		
@@ -238,14 +252,14 @@ namespace proyecto_4
 			
 			do
 			{
-				Console.WriteLine("Ingresa una de las siguientes categorias: ");
+				Console.WriteLine("\nIngresa una de las siguientes categorias: ");
 				Console.WriteLine("1. SUB 18");
 				Console.WriteLine("2. SUB 16");
 				Console.WriteLine("3. SUB 12");
 				Console.WriteLine("4. Salir");
-				Console.Write("Ingrese una opcion: ");
-				opcion=int.Parse(Console.ReadLine());
 				
+				Console.Write("\nIngrese una opcion: ");
+				opcion=int.Parse(Console.ReadLine());
 				if(opcion == 1)
 				{
 					categoria = 18; //lo guardo así despues se agrega a la clase deporte
@@ -293,6 +307,15 @@ namespace proyecto_4
 						Console.WriteLine("El deporte con esa categoria ya existe");
 					}
 					break;
+				}
+				if(opcion == 4)
+				{
+					Console.Clear();
+					Console.WriteLine("Adios!");
+				}
+				if(opcion > 4)
+				{
+					Console.WriteLine("Opcion invalida. Intentelo de nuevo");
 				}
 			}
 			while(opcion != 4);
@@ -403,8 +426,8 @@ namespace proyecto_4
 				else
 					Console.WriteLine("Opcion ingresada no valida");
 				
-			Console.ReadKey(true);
-			Console.Clear();
+				Console.ReadKey(true);
+				Console.Clear();
 			}
 			while(opcion!=4);
 		}
@@ -472,7 +495,7 @@ namespace proyecto_4
 			if(depo==null){
 				Console.WriteLine("El deporte no existe con esa categoria");
 			}
-			else{	
+			else{
 				if(so==null){
 					Console.WriteLine("No se a encontrado el socio");
 					
@@ -487,8 +510,6 @@ namespace proyecto_4
 			Console.Clear();
 			
 		}
-		
-		
 		
 		// 		METODO SIMULACION DE PAGO
 		public static void simulacionDePagoMain(Club club){
