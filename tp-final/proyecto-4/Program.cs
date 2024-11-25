@@ -37,10 +37,6 @@ namespace proyecto_4
 			Socio socioPrueba=new Socio("Braian", 45619054, 20, "Futbol", 18, 11, 0.20); //nombre, dni, edad, deporte, categoria, mes de pago, porcentaje
 			Socio socioPrueba2=new Socio("Matias", 123213, 12, "Baloncesto", 16, 1, 0.20);
 			Socio socioPrueba3=new Socio("Daniel", 555555, 16, "Voley", 16, 2, 0.20);
-
-			Socio socioPrueba = new Socio("Braian", 45619054, 20, "Futbol", 18, 11, 0.20); //nombre, dni, edad, deporte, categoria, mes de pago, porcentaje
-			Socio socioPrueba2 = new Socio("Matias", 123213, 12, "Baloncesto", 16, 1, 0.20);
-			Socio socioPrueba3 = new Socio("Daniel", 555555, 16, "Voley", 16, 2, 0.20);
 			
 			club.agregarSocio(socioPrueba);
 			club.agregarSocio(socioPrueba2);
