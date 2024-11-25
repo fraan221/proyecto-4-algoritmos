@@ -196,13 +196,13 @@ namespace proyecto_4
 		public void listadoTotal()
 		{
 			Console.WriteLine("Listado Total\n");
-			foreach(Deporte d in ListadoDeportes)
+			foreach(Socio d in ListadoSocios)
 			{
 				Console.WriteLine("{0}", d.Nombre);
 				Console.WriteLine(" Sub {0}", d.Categoria);
 			}
-			int cantidadDeportes = ListadoDeportes.Count;
-			Console.WriteLine("\nCantidad Total de Deportes en el Club: {0}\n", cantidadDeportes);
+			int cantidadDeportes = ListadoSocios.Count;
+			Console.WriteLine("\nCantidad Total de socios en el Club: {0}\n", cantidadDeportes);
 		}
 		
 		public void listaSocio()

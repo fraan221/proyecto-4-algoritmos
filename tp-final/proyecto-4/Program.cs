@@ -31,9 +31,9 @@ namespace proyecto_4
 //		Menu Principal
 		public static void Menu(string decision)
 		{
-//			INICIALIZACIONES DE CLASES DE PRUEBA
+			//INICIALIZACIONES DE CLASES DE PRUEBA
 			Club club = new Club("Boca");
-			/*
+			
 			Socio socioPrueba=new Socio("Braian", 45619054, 20, "Futbol", 18, 11, 0.20); //nombre, dni, edad, deporte, categoria, mes de pago, porcentaje
 			Socio socioPrueba2=new Socio("Matias", 123213, 12, "Baloncesto", 16, 1, 0.20);
 			Socio socioPrueba3=new Socio("Daniel", 555555, 16, "Voley", 16, 2, 0.20);
@@ -44,13 +44,15 @@ namespace proyecto_4
 			
 			Entrenador ePrueba = new Entrenador("Franco", 44966422);
 			Entrenador ePrueba1 = new Entrenador("Catriel", 44657432);
-			Deporte depoPrueba = new Deporte("Futbol", 18, 20, 20000, "lunes", "19:00", ePrueba);
-			Deporte depoPrueba1 = new Deporte("Baloncesto", 21, 0, 10000, "6", "21:00", ePrueba1);
+			Deporte depoPrueba0 = new Deporte("Voley", 18, 20, 20000, "lunes", "19:00", ePrueba);
+			Deporte depoPrueba1 = new Deporte("Futbol", 18, 20, 20000, "lunes", "19:00", ePrueba);
+			Deporte depoPrueba2 = new Deporte("Baloncesto", 18, 0, 10000, "6", "21:00", ePrueba1);
 			
 			club.agregarEntrenador(ePrueba);
 			club.agregarEntrenador(ePrueba1);
-			club.agregarDeporte(depoPrueba);
-			club.agregarDeporte(depoPrueba1);*/
+			club.agregarDeporte(depoPrueba0);
+			club.agregarDeporte(depoPrueba1);
+			club.agregarDeporte(depoPrueba2);
 //			FIN DE LAS INICIALIZACIONES
 			
 			while (decision == "s" || decision == "S")
@@ -419,24 +421,36 @@ namespace proyecto_4
 			if(deporte == null){
 				Console.WriteLine("No se puede inscribir ya que no existe ese deporte");
 			}
-			
-			else if(deporte !=null){
-				Console.Write("Ingrese el nombre del socio: ");
-				string nombre = Console.ReadLine();
-				Console.Write("Ingrese el dni del socio: ");
-				int dni = int.Parse(Console.ReadLine());
-				Console.Write("Ingrese la edad del socio: ");
-				int edad = int.Parse(Console.ReadLine());
-
-				Console.Write("Ingrese el numero de mes del ultimo mes pago: ");
-				int ultimoMesPago = int.Parse(Console.ReadLine());
-				Console.Write("El descuento que recibira es del 20%");
-				double descuento = 0.20; //dejamos fijo el porcentaje que sera del 20%
-				Socio s = new Socio(nombre, dni, edad, nombre_deporte, categoria, ultimoMesPago, descuento);
-				Console.WriteLine("\nSE A AGREGADO EL SOCIO");
-				club.agregarSocio(s);
-				deporte.altaInscripto();
+			try{
+				if(deporte !=null){
+					if(deporte.Cupo == 0)
+					{
+						throw new SinCupoDisponible();
+					}
+					else
+					{
+						Console.Write("Ingrese el nombre del socio: ");
+						string nombre = Console.ReadLine();
+						Console.Write("Ingrese el dni del socio: ");
+						int dni = int.Parse(Console.ReadLine());
+						Console.Write("Ingrese la edad del socio: ");
+						int edad = int.Parse(Console.ReadLine());
+		
+						Console.Write("Ingrese el numero de mes del ultimo mes pago: ");
+						int ultimoMesPago = int.Parse(Console.ReadLine());
+						Console.Write("El descuento que recibira es del 20%");
+						double descuento = 0.20; //dejamos fijo el porcentaje que sera del 20%
+						Socio s = new Socio(nombre, dni, edad, nombre_deporte, categoria, ultimoMesPago, descuento);
+						Console.WriteLine("\nSE A AGREGADO EL SOCIO");
+						club.agregarSocio(s);
+						deporte.altaInscripto();
+						deporte.Cupo -= 1;
+					}
+				}
 			}
+			catch(SinCupoDisponible){
+				Console.WriteLine("No se puede inscribir ya que no hay cupo disponible");
+		}
 			
 			Console.ReadKey(true);
 			Console.Clear();
