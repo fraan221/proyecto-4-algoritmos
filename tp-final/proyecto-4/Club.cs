@@ -83,8 +83,6 @@ namespace proyecto_4
 			}
 		}
 		
-		
-		
 //		Eliminar Deporte
 		public void eliminarDeporte(Deporte deporte)
 		{
@@ -155,7 +153,8 @@ namespace proyecto_4
 				}
 				else if(deporte.ToLower() != d.Nombre.ToLower())	// si el nombre recibido posr parametro no coincide con ninguno en la lista devuelve un mensaje
 				{
-					Console.WriteLine("El deporte ingresado no existe.");
+					Console.WriteLine("El deporte ingresado no existe y/o ingreso una opcion invalida");
+					break;
 				}
 			}
 		}
@@ -186,7 +185,7 @@ namespace proyecto_4
 				{
 					if(categoria != d.Categoria)
 					{
-						Console.WriteLine("No existe el deporte ingresado.\n");
+						Console.WriteLine("No existe el deporte ingresado ni tampoco la categoria o ingreso una opcion invalida.\n");
 					}
 				}
 			}
