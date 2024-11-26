@@ -5,13 +5,13 @@ namespace proyecto_4
 {
 	public class Club
 	{
-		// 		Atributos
+// 		Atributos
 		private string nombre;
 		private ArrayList listadoSocios;
 		private ArrayList listadoDeportes;
 		private ArrayList listadoEntrenadores;
 
-		// 		Constructor
+// 		Constructor
 		public Club(string nombre)
 		{
 			this.nombre = nombre;
@@ -20,7 +20,7 @@ namespace proyecto_4
 			listadoEntrenadores = new ArrayList();
 		}
 
-		// 		Propiedades
+// 		Propiedades
 		public string Nombre
 		{
 			get { return nombre; }
@@ -73,7 +73,7 @@ namespace proyecto_4
 			}
 		}
 		
-		//		Eliminar Socio
+//		Eliminar Socio
 		public void eliminarSocio(Socio socio, int dni){
 			foreach (Socio s in listadoSocios){
 				if(s.Dni==dni){
@@ -124,8 +124,6 @@ namespace proyecto_4
 			return null; //devuelve null si no se encuentra
 		}
 		
-
-		
 //		Buscar socio
 		public Socio buscarSocio(int dni){
 			foreach(Socio socio in ListadoSocios){
@@ -136,32 +134,40 @@ namespace proyecto_4
 			return null;
 		}
 		
-		
 //		Listado por Deporte
 		public void listadoDeporte(string deporte)
 		{
-			foreach(Deporte d in ListadoDeportes) // recorre la lista de deportes
+			Console.WriteLine("╔═════════════════════╗");
+			Console.WriteLine("║ Listado por Deporte ║");
+			Console.WriteLine("╚═════════════════════╝");
+			bool existeDeporte = false;
+			foreach (Deporte d in ListadoDeportes)
 			{
-				if(deporte.ToLower() == d.Nombre.ToLower())	// compara el nombre recibido con el nombre del deporte
+				if (deporte.ToLower() == d.Nombre.ToLower())
 				{
-					foreach(Socio s in ListadoSocios)	// si coindice recorre la lista de socios
+					existeDeporte = true;
+					foreach (Socio s in ListadoSocios)
 					{
-						if(s.Deporte.ToLower() == deporte.ToLower())	// checkea los socios con ese deporte asociado
-							Console.WriteLine("{0}, {1}\n", s.Nombre, s.Deporte);	// imprime los socios
+						if (deporte.ToLower() == s.Deporte.ToLower())
+						{
+							Console.WriteLine(" Nombre: {0}, Deporte: {1}", s.Nombre, s.Deporte);
+						}
 					}
-					break;
 				}
-				else if(deporte.ToLower() != d.Nombre.ToLower())	// si el nombre recibido posr parametro no coincide con ninguno en la lista devuelve un mensaje
-				{
-					Console.WriteLine("El deporte ingresado no existe y/o ingreso una opcion invalida");
-					break;
-				}
+			}
+			if (!existeDeporte)
+			{
+				Console.WriteLine("Algo salio mal. Intentelo de nuevo");
+				return;
 			}
 		}
 		
 //		Listado por Deporte y Categoria
 		public void listadoDeporteCategoria(string deporte, int categoria)
 		{
+			Console.WriteLine("╔═════════════════════════════════╗");
+			Console.WriteLine("║ Listado por Deporte y Categoria ║");
+			Console.WriteLine("╚═════════════════════════════════╝");
 			foreach(Deporte d in ListadoDeportes)
 			{
 				if(deporte.ToLower() == d.Nombre.ToLower())
@@ -174,7 +180,7 @@ namespace proyecto_4
 							{
 								if(categoria == s.Categoria)
 								{
-									Console.WriteLine("{0}, {1}, {2}\n", s.Nombre, s.Deporte, s.Categoria);
+									Console.WriteLine(" Nombre: {0}\n Deporte: {1}\n Categoria: {2}\n", s.Nombre, s.Deporte, s.Categoria);
 								}
 							}
 						}
@@ -188,38 +194,26 @@ namespace proyecto_4
 						Console.WriteLine("No existe el deporte ingresado ni tampoco la categoria o ingreso una opcion invalida.\n");
 					}
 				}
+				else
+				{
+					Console.WriteLine(" Algo salio mal. Intentelo de nuevo");
+				}
 			}
 		}
 		
 //		Listado Total
 		public void listadoTotal()
 		{
-			Console.WriteLine("Listado Total\n");
-			foreach(Socio d in ListadoSocios)
+			Console.WriteLine("╔═══════════════╗");
+			Console.WriteLine("║ Listado Total ║");
+			Console.WriteLine("╚═══════════════╝");
+			foreach(Socio s in ListadoSocios)
 			{
-				Console.WriteLine("{0}", d.Nombre);
-				Console.WriteLine(" Sub {0}", d.Categoria);
+				Console.WriteLine(" Nombre: {0}", s.Nombre);
+				Console.WriteLine(" Deporte: {0} Categoria: Sub {1}\n", s.Deporte, s.Categoria);
 			}
 			int cantidadDeportes = ListadoSocios.Count;
-			Console.WriteLine("\nCantidad Total de socios en el Club: {0}\n", cantidadDeportes);
-		}
-		
-		public void listaSocio()
-		{
-			Console.WriteLine("LISTADO DE SOCIOS\n");
-			foreach(Socio socio in ListadoSocios)
-			{
-				socio.imprimir();
-			}
-		}
-		
-		public Niño niño(int dni){
-			foreach(Niño niño in ListadoSocios)
-			{
-				if(niño.Dni==dni)
-					return niño;
-			}
-			return null;
+			Console.WriteLine("\n  Cantidad Total de socios en el Club: {0}\n", cantidadDeportes);
 		}
 	}
 }

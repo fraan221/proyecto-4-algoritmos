@@ -23,7 +23,7 @@ namespace proyecto_4
 			}
 			else
 			{
-				Console.WriteLine("Ingreso una opcion incorrecta. Hasta luego :( \n");
+				Console.WriteLine("Algo salio mal. Hasta luego :( \n");
 				Console.ReadKey(true);
 			}
 		}
@@ -34,48 +34,47 @@ namespace proyecto_4
 			//INICIALIZACIONES DE CLASES DE PRUEBA
 			Club club = new Club("Boca");
 			
-			Socio socioPrueba=new Socio("Braian", 45619054, 20, "Futbol", 18, 11, 0.20); //nombre, dni, edad, deporte, categoria, mes de pago, porcentaje
-			Socio socioPrueba2=new Socio("Matias", 123213, 12, "Baloncesto", 16, 1, 0.20);
-			Socio socioPrueba3=new Socio("Daniel", 555555, 16, "Voley", 16, 2, 0.20);
-			
-			club.agregarSocio(socioPrueba);
-			club.agregarSocio(socioPrueba2);
-			club.agregarSocio(socioPrueba3);
-			
-			
 			Entrenador ePrueba = new Entrenador("Franco", 44966422);
 			Entrenador ePrueba1 = new Entrenador("Catriel", 44657432);
 			Deporte depoPrueba0 = new Deporte("Voley", 18, 20, 20000, "lunes", "19:00", ePrueba);
 			Deporte depoPrueba1 = new Deporte("Futbol", 18, 20, 20000, "lunes", "19:00", ePrueba);
-			Deporte depoPrueba2 = new Deporte("Baloncesto", 18, 0, 10000, "6", "21:00", ePrueba1);
+			Deporte depoPrueba2 = new Deporte("Baloncesto", 16, 0, 10000, "lunes", "21:00", ePrueba1);
 			
 			club.agregarEntrenador(ePrueba);
 			club.agregarEntrenador(ePrueba1);
 			club.agregarDeporte(depoPrueba0);
 			club.agregarDeporte(depoPrueba1);
 			club.agregarDeporte(depoPrueba2);
+			
+			Socio socioPrueba = new Socio("Braian", 45619054, 20, "Futbol", 18, 11, 0.20); //nombre, dni, edad, deporte, categoria, mes de pago, porcentaje
+			Socio socioPrueba2 = new Socio("Matias", 45619024, 12, "Baloncesto", 16, 1, 0.20);
+			Socio socioPrueba3 = new Socio("Daniel", 45619014, 16, "Futbol", 18, 2, 0.20);
+			
+			club.agregarSocio(socioPrueba);
+			club.agregarSocio(socioPrueba2);
+			club.agregarSocio(socioPrueba3);
 //			FIN DE LAS INICIALIZACIONES
 			
 			while (decision == "s" || decision == "S")
 			{
-				Console.WriteLine("-----");
-				Console.WriteLine("MENÚ");
-				Console.WriteLine("-----------------------------------------------");
-				Console.WriteLine("1. Dar de alta a un Entrenador");
-				Console.WriteLine("2. Dar de baja a un Entrenador");
-				Console.WriteLine("3. Dar de alta a un Niño/Socio en un Deporte");
-				Console.WriteLine("4. Dar de baja a un Niño/Socio en un Deporte");
-				Console.WriteLine("5. Simular el pago de una cuota");
-				Console.WriteLine("6. Submenu");
-				Console.WriteLine("7. Listado de Deudores");
-				Console.WriteLine("8. Agregar un Deporte");
-				Console.WriteLine("9. Eliminar un Deporte");
-				Console.WriteLine("10. Salir");
-				Console.WriteLine("-----------------------------------------------");
+				Console.WriteLine("╔════════╗");
+				Console.WriteLine("║  MENÚ  ║");
+				Console.WriteLine("╠════════╩═══════════════════════════════════════╗");
+				Console.WriteLine("║ 1. Dar de alta a un Entrenador                 ║");
+				Console.WriteLine("║ 2. Dar de baja a un Entrenador                 ║");
+				Console.WriteLine("║ 3. Dar de alta a un Niño/Socio en un Deporte   ║");
+				Console.WriteLine("║ 4. Dar de baja a un Niño/Socio en un Deporte   ║");
+				Console.WriteLine("║ 5. Simular el pago de una cuota                ║");
+				Console.WriteLine("║ 6. Submenu                                     ║");
+				Console.WriteLine("║ 7. Listado de Deudores                         ║");
+				Console.WriteLine("║ 8. Agregar un Deporte                          ║");
+				Console.WriteLine("║ 9. Eliminar un Deporte                         ║");
+				Console.WriteLine("║ 10. Salir                                      ║");
+				Console.WriteLine("╚════════════════════════════════════════════════╝");
 				
 				try
 				{
-					Console.Write("Seleccione una opción: ");
+					Console.Write("\nSeleccione una opción: ");
 					int opcion = int.Parse(Console.ReadLine());
 					Console.Clear();
 					
@@ -126,7 +125,7 @@ namespace proyecto_4
 				catch(FormatException)
 				{
 					Console.Clear();
-					Console.WriteLine("Opcion incorrecta :( \n");
+					Console.WriteLine("Algo salio mal :( \n");
 				}
 			}
 		}
@@ -134,41 +133,60 @@ namespace proyecto_4
 //		Submenu
 		public static void Submenu(Club club)
 		{
-			Console.WriteLine("-----");
-			Console.WriteLine("SUBMENÚ DE INSCRIPCIÓN");
-			Console.WriteLine("-----------------------------------------------");
-			Console.WriteLine("1. Listado por Deporte");
-			Console.WriteLine("2. Listado por Deporte y Categoria");
-			Console.WriteLine("3. Listado Total");
-			Console.WriteLine("4. Volver");
-			Console.WriteLine("-----------------------------------------------");
+			Console.WriteLine("╔════════════════════════╗");
+			Console.WriteLine("║ SUBMENÚ DE INSCRIPCIÓN ║");
+			Console.WriteLine("╠════════════════════════╩═══════════════╗");
+			Console.WriteLine("║ 1. Listado por Deporte                 ║");
+			Console.WriteLine("║ 2. Listado por Deporte y Categoria     ║");
+			Console.WriteLine("║ 3. Listado Total                       ║");
+			Console.WriteLine("║ 4. Volver                              ║");
+			Console.WriteLine("╚════════════════════════════════════════╝");
 			
 			try
 			{
-				Console.Write("Seleccione una opción: ");
+				Console.Write("\nSeleccione una opción: ");
 				int op = int.Parse(Console.ReadLine());
 				Console.Clear();
 				
 				switch(op)
 				{
 					case 1:
-						Console.Write("Ingrese el deporte: ");
+						Console.WriteLine("╔═════════════════════╗");
+						Console.WriteLine("║ Listado por Deporte ║");
+						Console.WriteLine("╚═════════════════════╝");
+						Console.Write(" Ingrese el deporte: ");
 						string dep = Console.ReadLine();
+						Console.Clear();
 						club.listadoDeporte(dep);
+						Console.ReadKey(true);
+						Console.Clear();
 						break;
 					case 2:
-						Console.Write("Ingrese un deporte: ");
+						Console.WriteLine("╔═════════════════════════════════╗");
+						Console.WriteLine("║ Listado por Deporte y Categoria ║");
+						Console.WriteLine("╚═════════════════════════════════╝");
+						Console.Write(" Ingrese un deporte: ");
 						string deporte = Console.ReadLine();
-						Console.Write("Ingrese una categoria: ");
+						Console.Write(" Ingrese una categoria: ");
 						int categoria = int.Parse(Console.ReadLine());
+						Console.Clear();
 						club.listadoDeporteCategoria(deporte, categoria);
+						Console.ReadKey(true);
+						Console.Clear();
 						break;
 					case 3:
+						Console.WriteLine("╔═══════════════╗");
+						Console.WriteLine("║ Listado Total ║");
+						Console.WriteLine("╚═══════════════╝");
+						Console.Clear();
 						club.listadoTotal();
+						Console.ReadKey(true);
+						Console.Clear();
 						break;
 					case 4:
 						Console.Write("Seguro que quiere volver al Menu Principal? s/n: ");
 						string decisionSub = Console.ReadLine();
+						Console.Clear();
 						if(decisionSub == "s" || decisionSub == "S")
 						{
 							string d = "n";
@@ -189,9 +207,9 @@ namespace proyecto_4
 						break;
 				}
 			}
-			
 			catch(FormatException)
 			{
+				Console.Clear();
 				Console.WriteLine("Algo salio mal. Intentelo de nuevo\n");
 			}
 		}
@@ -199,46 +217,57 @@ namespace proyecto_4
 //		Agregar Entrenador (del main)
 		public static void agregarEntrenadorMain(Club club)
 		{
-			Console.Write("Ingrese el nombre del entrenador: ");
+			Console.WriteLine("╔═════════════════════════════════╗");
+			Console.WriteLine("║      Alta de un Entrenador      ║");
+			Console.WriteLine("╚═════════════════════════════════╝");
+			Console.Write("\n Ingrese el nombre del entrenador: ");
 			string nombre = Console.ReadLine();
-			Console.Write("Ingrese el dni del entrenador: ");
+			Console.Write(" Ingrese el dni del entrenador: ");
 			int dni = int.Parse(Console.ReadLine());
 			
 			if(club.buscarEntrenador(dni) == null)
 			{
 				Entrenador nuevoEntrenador = new Entrenador(nombre, dni);
 				club.agregarEntrenador(nuevoEntrenador);
-				Console.WriteLine("Se agrego correctamente el Entrenador \n");
+				Console.WriteLine(" Se agrego correctamente el Entrenador \n");
 			}
 			else
-				Console.WriteLine("El Entrenador ingresado ya esta registrado");
+				Console.WriteLine(" El Entrenador ingresado ya esta registrado");
 			
 			Console.ReadKey(true);
 			Console.Clear();
-			
 		}
 
 //		Eliminar Entrenador (del main)
 		public static void eliminarEntrenadorMain(Club club)
 		{
-			Console.Write("Ingrese el DNI del entrenador para eliminarlo: ");
+			Console.WriteLine("╔═════════════════════════════════╗");
+			Console.WriteLine("║      Baja de un Entrenador      ║");
+			Console.WriteLine("╚═════════════════════════════════╝");
+			Console.Write("\n Ingrese el DNI del entrenador para eliminarlo: ");
 			int dni = int.Parse(Console.ReadLine());
 			Entrenador ent = club.buscarEntrenador(dni); //se busca entrenador
 			
-			if(ent != null){
+			if(ent != null)
+			{
 				club.eliminarEntrenador(ent, dni);
-				Console.WriteLine("Se elimino el entrenador");
+				Console.WriteLine(" Se elimino el entrenador");
 			}
-			else{
-				Console.WriteLine("No se encontro el entrenador");
+			else
+			{
+				Console.WriteLine(" No se encontro el entrenador");
 			}
 			Console.ReadKey(true);
 			Console.Clear();
 		}
 		
 //		Agregar Deporte (del main)
-		public static void agregarDeporteMain(Club club){
-			Console.Write("Ingrese el nombre del deporte: ");
+		public static void agregarDeporteMain(Club club)
+		{
+			Console.WriteLine("╔═════════════════════════════════╗");
+			Console.WriteLine("║      Agregando un Deporte       ║");
+			Console.WriteLine("╚═════════════════════════════════╝");
+			Console.Write("\n Ingrese el nombre del deporte: ");
 			string nombre = Console.ReadLine();
 
 			int opcion;
@@ -247,13 +276,13 @@ namespace proyecto_4
 			
 			do
 			{
-				Console.WriteLine("\nIngresa una de las siguientes categorias: ");
-				Console.WriteLine("1. SUB 18");
-				Console.WriteLine("2. SUB 16");
-				Console.WriteLine("3. SUB 12");
-				Console.WriteLine("4. Salir");
+				Console.WriteLine("\n Ingresa una de las siguientes categorias: ");
+				Console.WriteLine("  1. SUB 18");
+				Console.WriteLine("  2. SUB 16");
+				Console.WriteLine("  3. SUB 12");
+				Console.WriteLine("  4. Salir");
 				
-				Console.Write("\nIngrese una opcion: ");
+				Console.Write("\n Ingrese una opcion: ");
 				opcion=int.Parse(Console.ReadLine());
 				if(opcion == 1)
 				{
@@ -267,7 +296,7 @@ namespace proyecto_4
 					}
 					else
 					{
-						Console.WriteLine("El deporte con esa categoria ya existe");
+						Console.WriteLine(" El deporte con esa categoria ya existe");
 					}
 					break;
 				}
@@ -283,7 +312,7 @@ namespace proyecto_4
 					}
 					else
 					{
-						Console.WriteLine("El deporte con esa categoria ya existe");
+						Console.WriteLine(" El deporte con esa categoria ya existe");
 					}
 					break;
 				}
@@ -299,18 +328,18 @@ namespace proyecto_4
 					}
 					else
 					{
-						Console.WriteLine("El deporte con esa categoria ya existe");
+						Console.WriteLine(" El deporte con esa categoria ya existe");
 					}
 					break;
 				}
 				if(opcion == 4)
 				{
 					Console.Clear();
-					Console.WriteLine("Adios!");
+					Console.WriteLine(" Adios!");
 				}
 				if(opcion > 4)
 				{
-					Console.WriteLine("Opcion invalida. Intentelo de nuevo");
+					Console.WriteLine(" Opcion invalida. Intentelo de nuevo");
 				}
 			}
 			while(opcion != 4);
@@ -319,19 +348,19 @@ namespace proyecto_4
 //		Se complementa con Deporte, agrega los datos que le falta
 		public static void datosDeportes(Club club, string nombre, int categoria)
 		{
-			Console.Write("Ingrese los dias de entrenamiento: ");
+			Console.Write(" Ingrese los dias de entrenamiento: ");
 			string dia = Console.ReadLine();
 			
-			Console.Write("Ingrese la hora a la que empieza el entrenamiento: ");
+			Console.Write(" Ingrese la hora a la que empieza el entrenamiento: ");
 			string hora = Console.ReadLine();
 			
-			Console.Write("Ingrese el cupo maximo: ");
+			Console.Write(" Ingrese el cupo maximo: ");
 			int cupo = int.Parse(Console.ReadLine());
 			
-			Console.Write("Ingrese el costo de la cuota: ");
+			Console.Write(" Ingrese el costo de la cuota: ");
 			double costoCuota = double.Parse(Console.ReadLine());
 			
-			Console.Write("Ingresa el DNI del entrenador a asignar: ");
+			Console.Write(" Ingresa el DNI del entrenador a asignar: ");
 			int dniEntrenador = int.Parse(Console.ReadLine());
 			
 			
@@ -346,7 +375,7 @@ namespace proyecto_4
 			{
 				Deporte dep1 = new Deporte(nombre, categoria, cupo,costoCuota, dia, hora, entrenador);
 				club.agregarDeporte(dep1);
-				Console.WriteLine("Se agrego correctamente");
+				Console.WriteLine(" Se agrego correctamente");
 			}
 			Console.ReadKey(true);
 			Console.Clear();
@@ -356,7 +385,10 @@ namespace proyecto_4
 //		Eliminar deporte (del main)
 		public static void eliminarDeporteMain(Club club)
 		{
-			Console.Write("Ingresa el nombre del deporte a Eliminar: ");
+			Console.WriteLine("╔═════════════════════════════════╗");
+			Console.WriteLine("║     Eliminando un Deporte       ║");
+			Console.WriteLine("╚═════════════════════════════════╝");
+			Console.Write("\n Ingresa el nombre del deporte a Eliminar: ");
 			string nombreDeporte = Console.ReadLine();
 			
 			int categoria;
@@ -365,12 +397,13 @@ namespace proyecto_4
 			
 			do
 			{
-				Console.WriteLine("Ingresa una de las siguientes categorias: ");
-				Console.WriteLine("1. SUB 18");
-				Console.WriteLine("2. SUB 16");
-				Console.WriteLine("3. SUB 12");
-				Console.WriteLine("4. Salir");
-				Console.Write("Ingrese una opcion: ");
+				Console.WriteLine(" Ingresa una de las siguientes categorias" +
+				                  ": ");
+				Console.WriteLine("  1. SUB 18");
+				Console.WriteLine("  2. SUB 16");
+				Console.WriteLine("  3. SUB 12");
+				Console.WriteLine("  4. Salir");
+				Console.Write(" Ingrese una opcion: ");
 				opcion=int.Parse(Console.ReadLine());
 				
 				if(opcion == 1)
@@ -379,7 +412,7 @@ namespace proyecto_4
 					deporte = club.buscarDeporte(nombreDeporte, categoria);
 					if(deporte == null)
 					{
-						Console.WriteLine("No existe ese deporte con esa categoria");
+						Console.WriteLine(" No existe ese deporte con esa categoria");
 						break;
 					}
 					else
@@ -394,7 +427,7 @@ namespace proyecto_4
 					deporte = club.buscarDeporte(nombreDeporte, categoria);
 					if(deporte == null)
 					{
-						Console.WriteLine("No existe ese deporte con esa categoria");
+						Console.WriteLine(" No existe ese deporte con esa categoria");
 						break;
 					}
 					else
@@ -409,7 +442,7 @@ namespace proyecto_4
 					deporte = club.buscarDeporte(nombreDeporte, categoria);
 					if(deporte == null)
 					{
-						Console.WriteLine("No existe ese deporte con esa categoria");
+						Console.WriteLine(" No existe ese deporte con esa categoria");
 						break;
 					}
 					else
@@ -419,7 +452,7 @@ namespace proyecto_4
 					}
 				}
 				else
-					Console.WriteLine("Opcion ingresada no valida");
+					Console.WriteLine(" Opcion ingresada no valida");
 				
 				Console.ReadKey(true);
 				Console.Clear();
@@ -427,77 +460,85 @@ namespace proyecto_4
 			while(opcion!=4);
 		}
 		
-//		METODO DAR DE ALTA NIÑO
-		public static void agregarSocioMain(Club club){
-			Console.Write("Ingrese el deporte al que se quiere inscribir: ");
+//		Agregar Socio (del main)
+		public static void agregarSocioMain(Club club)
+		{
+			Console.WriteLine("╔═════════════════════════════════╗");
+			Console.WriteLine("║        Alta de un Socio         ║");
+			Console.WriteLine("╚═════════════════════════════════╝");
+			Console.Write("\n Ingrese el deporte al que se quiere inscribir: ");
 			string nombre_deporte = Console.ReadLine();
-			Console.WriteLine("\nHAY SOLO TRES CATEGORIAS: SUB 12, SUB 16, SUB 18");
-			Console.Write("Ingrese la categoria del socio: ");
+			Console.WriteLine("\n HAY SOLO TRES CATEGORIAS: SUB 12, SUB 16, SUB 18");
+			Console.Write(" Ingrese la categoria del socio: ");
 			int categoria = int.Parse(Console.ReadLine());
 			
 			Deporte deporte = club.buscarDeporte(nombre_deporte, categoria);
 			if(deporte == null){
-				Console.WriteLine("No se puede inscribir ya que no existe ese deporte");
+				Console.WriteLine(" No se puede inscribir ya que no existe ese deporte");
 			}
 			try{
 				if(deporte !=null){
 					if(deporte.Cupo == 0)
 					{
-						throw new SinCupoDisponible();
+						throw new SinCupoDisponibleException();
 					}
 					else
 					{
-						Console.Write("Ingrese el nombre del socio: ");
+						Console.Write(" Ingrese el nombre del socio: ");
 						string nombre = Console.ReadLine();
-						Console.Write("Ingrese el dni del socio: ");
+						Console.Write(" Ingrese el dni del socio: ");
 						int dni = int.Parse(Console.ReadLine());
-						Console.Write("Ingrese la edad del socio: ");
+						Console.Write(" Ingrese la edad del socio: ");
 						int edad = int.Parse(Console.ReadLine());
-		
-						Console.Write("Ingrese el numero de mes del ultimo mes pago: ");
+						
+						Console.Write(" Ingrese el numero de mes del ultimo mes pago: ");
 						int ultimoMesPago = int.Parse(Console.ReadLine());
-						Console.Write("El descuento que recibira es del 20%");
+						Console.Write(" El descuento que recibira es del 20%");
 						double descuento = 0.20; //dejamos fijo el porcentaje que sera del 20%
 						Socio s = new Socio(nombre, dni, edad, nombre_deporte, categoria, ultimoMesPago, descuento);
-						Console.WriteLine("\nSE A AGREGADO EL SOCIO");
+						Console.WriteLine("\n Se ha agregado correctamente el Socio");
 						club.agregarSocio(s);
 						deporte.altaInscripto();
 						deporte.Cupo -= 1;
 					}
 				}
 			}
-			catch(SinCupoDisponible){
-				Console.WriteLine("No se puede inscribir ya que no hay cupo disponible");
-		}
+			catch(SinCupoDisponibleException){
+				Console.WriteLine(" No se puede inscribir ya que no hay cupo disponible");
+			}
 			
 			Console.ReadKey(true);
 			Console.Clear();
 		}
-		// 		METODO DE ELIMINAR SOCIO
 		
-		public static void eliminarSocio(Club club){
-			Console.Write("Ingresa el deporte del Socio: ");
+// 		Eliminar Socio (del main)
+		public static void eliminarSocio(Club club)
+		{
+			Console.WriteLine("╔═════════════════════════════════╗");
+			Console.WriteLine("║        Baja de un Socio         ║");
+			Console.WriteLine("╚═════════════════════════════════╝");
+			Console.Write("\n Ingresa el deporte del Socio: ");
 			string nombreDeporte=Console.ReadLine();
-			Console.Write("Ingresa la cateogoria: ");
+			Console.Write(" Ingresa la cateogoria: ");
 			int categoriaDeporte=int.Parse(Console.ReadLine());
 			
-			Console.Write("Ingresa el DNI del socio a eliminar: ");
+			Console.Write(" Ingresa el DNI del socio a eliminar: ");
 			int dni=int.Parse(Console.ReadLine());
 			
 			Socio so=club.buscarSocio(dni);
 			Deporte depo=club.buscarDeporte(nombreDeporte, categoriaDeporte);
 			
 			if(depo==null){
-				Console.WriteLine("El deporte no existe con esa categoria");
+				Console.WriteLine(" El deporte no existe con esa categoria");
 			}
 			else{
 				if(so==null){
-					Console.WriteLine("No se a encontrado el socio");
+					Console.WriteLine(" No se a encontrado el socio");
 					
 				}
 				else{
 					club.eliminarSocio(so, dni);
-					Console.WriteLine("Se a eliminado el socio");
+					Console.WriteLine(" Se ha eliminado el socio");
 					depo.bajaInscripto(); //baja la en 1 cada vez que se elimina un socio
 				}
 			}
@@ -506,14 +547,18 @@ namespace proyecto_4
 			
 		}
 		
-		// 		METODO SIMULACION DE PAGO
-		public static void simulacionDePagoMain(Club club){
-			Console.Write("Ingresa el deporte del Socio: ");
+// 		Simulacion de Pago (del main)
+		public static void simulacionDePagoMain(Club club)
+		{
+			Console.WriteLine("╔═════════════════════════════════╗");
+			Console.WriteLine("║       Simulacion de Pago        ║");
+			Console.WriteLine("╚═════════════════════════════════╝");
+			Console.Write("\n Ingresa el deporte del Socio: ");
 			string nombreDeporte=Console.ReadLine();
-			Console.Write("Ingresa la cateogoria: ");
+			Console.Write(" Ingresa la cateogoria: ");
 			int categoriaDeporte=int.Parse(Console.ReadLine());
 			
-			Console.Write("Ingrese el dni del socio para actualizar la cuota: ");
+			Console.Write(" Ingrese el dni del socio para actualizar la cuota: ");
 			int dni = int.Parse(Console.ReadLine());
 			
 			Socio so=club.buscarSocio(dni);
@@ -521,22 +566,22 @@ namespace proyecto_4
 			
 			foreach(Deporte d in club.ListadoDeportes){
 				if(dep==null){
-					Console.WriteLine("No existe el deporte con esa categoria");
+					Console.WriteLine(" No existe el deporte con esa categoria");
 					break;
 				}
 				else{
 					foreach(Socio s in club.ListadoSocios){
 						if(so==null){
-							Console.WriteLine("No existe el socio con el DNI ingresado");
+							Console.WriteLine(" No existe el socio con el DNI ingresado");
 						}
 						else{
-							Console.WriteLine("\nExiste el socio");
+							Console.WriteLine("\n Existe el socio");
 							double costoCuota=d.CostoCuota; //guardo el precio del abono del deporte
 							double descuentoSocio=s.Descuento; //guardo el porcentaje del descuento (20%)
 							double descuento=costoCuota*descuentoSocio; //nos dice el monto del porcentaje
 							
-							Console.WriteLine("\nEl descuento sera de: " + descuento);
-							Console.WriteLine("El abono total con el descuento es: " + (costoCuota - descuento));
+							Console.WriteLine("\n El descuento sera de: " + descuento);
+							Console.WriteLine(" El abono total con el descuento es: " + (costoCuota - descuento));
 							s.UltimoMesPago=11; //ultimo mes pago actualizado
 							break;
 						}
@@ -549,8 +594,12 @@ namespace proyecto_4
 			
 		}
 		
-//		LISTA DE DEUDORES
-		public static void listaDeudores(Club club){
+//		Lista de Deudores (del main)
+		public static void listaDeudores(Club club)
+		{
+			Console.WriteLine("╔═════════════════════╗");
+			Console.WriteLine("║ Listado de Deudores ║");
+			Console.WriteLine("╚═════════════════════╝");
 			foreach(Socio socio in club.ListadoSocios){
 				if(socio.UltimoMesPago<11){
 					socio.imprimir();

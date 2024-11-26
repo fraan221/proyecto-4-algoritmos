@@ -85,13 +85,6 @@ namespace proyecto_4
 			cantidadInscriptos++;
 		}
 		
-		public bool cuposDisponibles(){
-			if(cupo>0){
-				return true;
-			}
-			return false;
-		}
-		
 		public void imprimir()
 		{
 			Console.WriteLine("{0}, {1}, {2}", nombre, categoria, cantidadInscriptos);

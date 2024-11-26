@@ -48,7 +48,7 @@
     <Compile Include="Club.cs" />
     <Compile Include="Deporte.cs" />
     <Compile Include="Entrenador.cs" />
-    <Compile Include="Exception.cs" />
+    <Compile Include="SinCupoDisponibleException.cs" />
     <Compile Include="Niño.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -22,9 +22,10 @@ namespace proyecto_4
 //		Metodos
 		public override void imprimir()
 		{
-			Console.WriteLine("Nombre: " + nombre);
-			Console.WriteLine("Dni: " + dni);
-			Console.WriteLine("Descuento: " + descuento);
+			Console.WriteLine(" Nombre: " + nombre);
+			Console.WriteLine(" Dni: " + dni);
+			Console.WriteLine(" Descuento: " + descuento);
+			Console.WriteLine("");
 		}
 	}
 }
